@@ -97,7 +97,7 @@ footer {
 </div>
 
 <!-- BIO -->
-<section id="about">
+<section id="about" style="position:relative; z-index:1;">
   <h2>Σχετικά</h2>
   <p>
     Η Γκουγκουλή Βασιλική είναι δικηγόρος και πιστοποιημένη διαμεσολαβήτρια,
@@ -109,20 +109,38 @@ footer {
     διαφορών, με σεβασμό στα μέρη και στις ιδιαιτερότητες κάθε υπόθεσης.
   </p>
 
-  <!-- Counters -->
-  <div class="counters" style="display:flex; justify-content:center; gap:80px; margin-top:50px;">
+  <!-- Counters με αχνό μπλε background -->
+  <div class="counters" style="
+        display:flex; 
+        justify-content:center; 
+        gap:80px; 
+        margin-top:50px; 
+        background: rgba(0, 122, 204, 0.1); 
+        padding:40px 20px; 
+        border-radius:12px;
+      ">
     <div class="counter-item" style="text-align:center;">
-      <div class="count" data-target="52" style="font-size:64px; color:#007acc; transition: all 0.3s ease;">0</div>
-      <div style="font-size:16px; margin-top:8px;">Διεκπεραιωμένες διαμεσολαβήσεις</div>
+      <div class="count" data-target="52" style="
+            font-size:64px; 
+            color:white; 
+            font-weight:bold;
+            transition: all 0.3s ease;
+          ">0</div>
+      <div style="font-size:18px; margin-top:8px; color:white; font-weight:bold;">Διεκπεραιωμένες διαμεσολαβήσεις</div>
     </div>
     <div class="counter-item" style="text-align:center;">
-      <div class="count" data-target="5" style="font-size:64px; color:#007acc; transition: all 0.3s ease;">0</div>
-      <div style="font-size:16px; margin-top:8px;">Χρόνια εμπειρίας στις διαμεσολαβήσεις</div>
+      <div class="count" data-target="5" style="
+            font-size:64px; 
+            color:white; 
+            font-weight:bold;
+            transition: all 0.3s ease;
+          ">0</div>
+      <div style="font-size:18px; margin-top:8px; color:white; font-weight:bold;">Χρόνια εμπειρίας στις διαμεσολαβήσεις</div>
     </div>
   </div>
 </section>
 
-<!-- JS για smooth animation με scroll trigger -->
+<!-- JS για smooth animation με διαφορετικές ταχύτητες -->
 <script>
   const counters = document.querySelectorAll('.count');
   let countersAnimated = false;
@@ -137,7 +155,9 @@ footer {
       counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
         let current = 0;
-        const duration = 2000; // Διάρκεια animation σε ms
+
+        // Αν το target είναι 5 (χρόνια), το κάνουμε πιο αργό
+        const duration = target === 5 ? 3000 : 2000;
         const stepTime = Math.abs(Math.floor(duration / target));
 
         const counterInterval = setInterval(() => {
