@@ -108,7 +108,38 @@ footer {
     Στόχος της είναι η αποτελεσματική, ανθρώπινη και ασφαλής επίλυση
     διαφορών, με σεβασμό στα μέρη και στις ιδιαιτερότητες κάθε υπόθεσης.
   </p>
+
+  <!-- Counters -->
+  <div class="counters" style="display:flex; justify-content:center; gap:60px; margin-top:50px;">
+    <div class="counter-item" style="text-align:center;">
+      <div class="count" data-target="52" style="font-size:48px; color:#333;">0</div>
+      <div>Διεκπεραιωμένες διαμεσολαβήσεις</div>
+    </div>
+    <div class="counter-item" style="text-align:center;">
+      <div class="count" data-target="5" style="font-size:48px; color:#333;">0</div>
+      <div>Χρόνια εμπειρίας στις διαμεσολαβήσεις</div>
+    </div>
+  </div>
 </section>
+
+<!-- JS για animation -->
+<script>
+  const counters = document.querySelectorAll('.count');
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 100; // 100 βήματα
+      if(count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+</script>
 
 <!-- PANEL -->
 <div class="panel">
