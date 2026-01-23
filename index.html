@@ -109,38 +109,27 @@ footer {
     διαφορών, με σεβασμό στα μέρη και στις ιδιαιτερότητες κάθε υπόθεσης.
   </p>
 
-  <!-- Full-width counters panel -->
+  <!-- FULL-WIDTH transparent panel -->
   <div style="
-        width: 100%;
-        background: rgba(0, 0, 80, 0.85); /* σκουρό μπλε διάφανο που σου άρεσε */
-        padding: 60px 0;
+        position:relative;
+        width:100vw;           /* full width της οθόνης */
+        left:50%;               /* για να αφαιρέσουμε margin από body */
+        right:50%;
+        margin-left:-50vw;
+        margin-right:-50vw;
+        background: rgba(0,0,80,0.85); /* σκουρό μπλε διάφανο */
+        padding:60px 0;
+        display:flex;
+        justify-content:center;
       ">
-    <div class="counters" style="display:flex; justify-content:center; gap:100px;">
+    <div class="counters" style="display:flex; gap:100px; justify-content:center; flex-wrap:wrap;">
       <div class="counter-item" style="text-align:center; opacity:0; transform: translateY(30px); transition: all 1s ease;">
-        <div class="count" data-target="52" style="
-              font-size:64px; 
-              color:white; 
-              font-weight:bold;
-            ">0</div>
-        <div style="
-              font-size:18px; 
-              margin-top:8px; 
-              color:white; 
-              font-weight:bold;
-            ">Διεκπεραιωμένες διαμεσολαβήσεις</div>
+        <div class="count" data-target="52" style="font-size:64px; color:white; font-weight:bold;">0</div>
+        <div style="font-size:18px; margin-top:8px; color:white; font-weight:bold;">Διεκπεραιωμένες διαμεσολαβήσεις</div>
       </div>
       <div class="counter-item" style="text-align:center; opacity:0; transform: translateY(30px); transition: all 1s ease;">
-        <div class="count" data-target="5" style="
-              font-size:64px; 
-              color:white; 
-              font-weight:bold;
-            ">0</div>
-        <div style="
-              font-size:18px; 
-              margin-top:8px; 
-              color:white; 
-              font-weight:bold;
-            ">Χρόνια εμπειρίας στις διαμεσολαβήσεις</div>
+        <div class="count" data-target="5" style="font-size:64px; color:white; font-weight:bold;">0</div>
+        <div style="font-size:18px; margin-top:8px; color:white; font-weight:bold;">Χρόνια εμπειρίας στις διαμεσολαβήσεις</div>
       </div>
     </div>
   </div>
