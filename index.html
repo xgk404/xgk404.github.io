@@ -109,15 +109,16 @@ footer {
     διαφορών, με σεβασμό στα μέρη και στις ιδιαιτερότητες κάθε υπόθεσης.
   </p>
 
-  <!-- Counters με gradient σκούρο μπλε και shadow -->
+  <!-- Counters panel: πλήρες οριζόντιο background -->
   <div class="counters-panel" style="
-        background: linear-gradient(90deg, rgba(0,51,102,0.8), rgba(0,102,204,0.6));
-        padding: 50px 20px;
+        background: rgba(0, 51, 102, 0.7); /* πιο σκουρό μπλε με διαφάνεια */
+        padding: 60px 20px;
         border-radius: 12px;
         margin-top: 50px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        display:flex;
+        justify-content:center;
       ">
-    <div class="counters" style="display:flex; justify-content:center; gap:80px;">
+    <div class="counters" style="display:flex; gap:80px; max-width:900px; width:100%;">
       <div class="counter-item" style="text-align:center; opacity:0; transform: translateY(30px); transition: all 1s ease;">
         <div class="count" data-target="52" style="
               font-size:64px; 
@@ -194,7 +195,6 @@ footer {
   window.addEventListener('scroll', animateCounters);
   window.addEventListener('load', animateCounters);
 </script>
-
 
 <!-- PANEL -->
 <div class="panel">
