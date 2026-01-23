@@ -110,22 +110,22 @@ footer {
   </p>
 
   <!-- Counters -->
-  <div class="counters" style="display:flex; justify-content:center; gap:60px; margin-top:50px;">
+  <div class="counters" style="display:flex; justify-content:center; gap:80px; margin-top:50px;">
     <div class="counter-item" style="text-align:center;">
-      <div class="count" data-target="52" style="font-size:48px; color:#333;">0</div>
-      <div>Διεκπεραιωμένες διαμεσολαβήσεις</div>
+      <div class="count" data-target="52" style="font-size:64px; color:#007acc; transition: all 0.3s ease;">0</div>
+      <div style="font-size:16px; margin-top:8px;">Διεκπεραιωμένες διαμεσολαβήσεις</div>
     </div>
     <div class="counter-item" style="text-align:center;">
-      <div class="count" data-target="5" style="font-size:48px; color:#333;">0</div>
-      <div>Χρόνια εμπειρίας στις διαμεσολαβήσεις</div>
+      <div class="count" data-target="5" style="font-size:64px; color:#007acc; transition: all 0.3s ease;">0</div>
+      <div style="font-size:16px; margin-top:8px;">Χρόνια εμπειρίας στις διαμεσολαβήσεις</div>
     </div>
   </div>
 </section>
 
-<!-- JS για animation με scroll trigger -->
+<!-- JS για smooth animation με scroll trigger -->
 <script>
   const counters = document.querySelectorAll('.count');
-  let countersAnimated = false; // Για να μην ξανατρέχει το animation
+  let countersAnimated = false;
 
   function animateCounters() {
     if(countersAnimated) return;
@@ -133,27 +133,28 @@ footer {
     const sectionTop = section.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
 
-    if(sectionTop < windowHeight - 100) { // Μόλις η ενότητα φαίνεται
+    if(sectionTop < windowHeight - 100) {
       counters.forEach(counter => {
-        const updateCount = () => {
-          const target = +counter.getAttribute('data-target');
-          const count = +counter.innerText;
-          const increment = target / 100;
-          if(count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCount, 20);
-          } else {
+        const target = +counter.getAttribute('data-target');
+        let current = 0;
+        const duration = 2000; // Διάρκεια animation σε ms
+        const stepTime = Math.abs(Math.floor(duration / target));
+
+        const counterInterval = setInterval(() => {
+          current += 1;
+          counter.innerText = current;
+          if(current >= target) {
             counter.innerText = target;
+            clearInterval(counterInterval);
           }
-        };
-        updateCount();
+        }, stepTime);
       });
       countersAnimated = true;
     }
   }
 
   window.addEventListener('scroll', animateCounters);
-  window.addEventListener('load', animateCounters); // Αν είναι ήδη στην οθόνη
+  window.addEventListener('load', animateCounters);
 </script>
 
 <!-- PANEL -->
