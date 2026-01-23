@@ -97,7 +97,7 @@ footer {
 </div>
 
 <!-- BIO -->
-<section>
+<section id="about">
   <h2>Σχετικά</h2>
   <p>
     Η Γκουγκουλή Βασιλική είναι δικηγόρος και πιστοποιημένη διαμεσολαβήτρια,
@@ -122,23 +122,38 @@ footer {
   </div>
 </section>
 
-<!-- JS για animation -->
+<!-- JS για animation με scroll trigger -->
 <script>
   const counters = document.querySelectorAll('.count');
-  counters.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText;
-      const increment = target / 100; // 100 βήματα
-      if(count < target) {
-        counter.innerText = Math.ceil(count + increment);
-        setTimeout(updateCount, 20);
-      } else {
-        counter.innerText = target;
-      }
-    };
-    updateCount();
-  });
+  let countersAnimated = false; // Για να μην ξανατρέχει το animation
+
+  function animateCounters() {
+    if(countersAnimated) return;
+    const section = document.getElementById('about');
+    const sectionTop = section.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if(sectionTop < windowHeight - 100) { // Μόλις η ενότητα φαίνεται
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute('data-target');
+          const count = +counter.innerText;
+          const increment = target / 100;
+          if(count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 20);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+      countersAnimated = true;
+    }
+  }
+
+  window.addEventListener('scroll', animateCounters);
+  window.addEventListener('load', animateCounters); // Αν είναι ήδη στην οθόνη
 </script>
 
 <!-- PANEL -->
