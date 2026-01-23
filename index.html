@@ -109,58 +109,49 @@ footer {
     διαφορών, με σεβασμό στα μέρη και στις ιδιαιτερότητες κάθε υπόθεσης.
   </p>
 
-  <!-- Counters με αχνό μπλε πίσω από τα γράμματα -->
-  <div class="counters" style="display:flex; justify-content:center; gap:80px; margin-top:50px;">
-    <div class="counter-item" style="text-align:center;">
-      <div class="count" data-target="52" style="
-            font-size:64px; 
-            color:white; 
-            font-weight:bold;
-            display:inline-block;
-            padding:20px 30px;
-            background: rgba(0, 122, 204, 0.2);
-            border-radius:12px;
-            transition: all 0.3s ease;
-          ">0</div>
-      <div style="
-            font-size:18px; 
-            margin-top:8px; 
-            color:white; 
-            font-weight:bold;
-            display:inline-block;
-            padding:6px 12px;
-            background: rgba(0, 122, 204, 0.2);
-            border-radius:8px;
-          ">Διεκπεραιωμένες διαμεσολαβήσεις</div>
-    </div>
-    <div class="counter-item" style="text-align:center;">
-      <div class="count" data-target="5" style="
-            font-size:64px; 
-            color:white; 
-            font-weight:bold;
-            display:inline-block;
-            padding:20px 30px;
-            background: rgba(0, 122, 204, 0.2);
-            border-radius:12px;
-            transition: all 0.3s ease;
-          ">0</div>
-      <div style="
-            font-size:18px; 
-            margin-top:8px; 
-            color:white; 
-            font-weight:bold;
-            display:inline-block;
-            padding:6px 12px;
-            background: rgba(0, 122, 204, 0.2);
-            border-radius:8px;
-          ">Χρόνια εμπειρίας στις διαμεσολαβήσεις</div>
+  <!-- Counters με gradient σκούρο μπλε και shadow -->
+  <div class="counters-panel" style="
+        background: linear-gradient(90deg, rgba(0,51,102,0.8), rgba(0,102,204,0.6));
+        padding: 50px 20px;
+        border-radius: 12px;
+        margin-top: 50px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      ">
+    <div class="counters" style="display:flex; justify-content:center; gap:80px;">
+      <div class="counter-item" style="text-align:center; opacity:0; transform: translateY(30px); transition: all 1s ease;">
+        <div class="count" data-target="52" style="
+              font-size:64px; 
+              color:white; 
+              font-weight:bold;
+            ">0</div>
+        <div style="
+              font-size:18px; 
+              margin-top:8px; 
+              color:white; 
+              font-weight:bold;
+            ">Διεκπεραιωμένες διαμεσολαβήσεις</div>
+      </div>
+      <div class="counter-item" style="text-align:center; opacity:0; transform: translateY(30px); transition: all 1s ease;">
+        <div class="count" data-target="5" style="
+              font-size:64px; 
+              color:white; 
+              font-weight:bold;
+            ">0</div>
+        <div style="
+              font-size:18px; 
+              margin-top:8px; 
+              color:white; 
+              font-weight:bold;
+            ">Χρόνια εμπειρίας στις διαμεσολαβήσεις</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- JS για smooth animation με διαφορετικές ταχύτητες -->
+<!-- JS για smooth animation + fade-in -->
 <script>
   const counters = document.querySelectorAll('.count');
+  const counterItems = document.querySelectorAll('.counter-item');
   let countersAnimated = false;
 
   function animateCounters() {
@@ -170,11 +161,19 @@ footer {
     const windowHeight = window.innerHeight;
 
     if(sectionTop < windowHeight - 100) {
+      // Fade-in και ανόρθωση
+      counterItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.style.opacity = 1;
+          item.style.transform = "translateY(0)";
+        }, index * 200); // μικρή καθυστέρηση μεταξύ των δύο
+      });
+
+      // Μετρητές
       counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
         let current = 0;
 
-        // Αν το target είναι 5 (χρόνια), το κάνουμε πιο αργό
         const duration = target === 5 ? 3000 : 2000;
         const stepTime = Math.abs(Math.floor(duration / target));
 
@@ -187,6 +186,7 @@ footer {
           }
         }, stepTime);
       });
+
       countersAnimated = true;
     }
   }
