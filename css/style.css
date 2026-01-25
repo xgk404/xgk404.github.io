@@ -55,6 +55,7 @@ body {
 
 /* HERO SECTION */
 .hero {
+  background: url("../img/hero.jpg") center/cover no-repeat;
   height: 80vh; /* Λίγο πιο κοντό από 100vh για να φαίνεται ότι υπάρχει και κάτω content */
   background-position: center;
   background-size: cover;
