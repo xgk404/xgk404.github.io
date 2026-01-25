@@ -1,237 +1,86 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-<meta charset="UTF-8">
-<title>Γκουγκουλή Βασιλική | Δικηγόρος – Διαμεσολαβήτρια</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* HERO */
-.hero {
-  height: 100vh;
-  background: url("hero.jpg") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  position: relative;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-}
-.hero-content {
-  position: relative;
-  z-index: 1;
-}
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-.hero p {
-  font-size: 22px;
-}
-
-/* SECTIONS */
-section {
-  max-width: 900px;
-  margin: 80px auto;
-  padding: 0 20px;
-}
-section h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* PANEL */
-.panel {
-  background: url("panel.jpg") center/cover no-repeat;
-  color: white;
-  padding: 80px 20px;
-}
-.panel-overlay {
-  max-width: 900px;
-  margin: auto;
-  background: rgba(0,0,0,0.6);
-  padding: 40px;
-}
-.panel-item {
-  margin: 40px 0;
-  text-align: center;
-}
-
-/* CONTACT */
-.contact {
-  background: #f4f4f4;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-footer {
-  text-align: center;
-  font-size: 14px;
-  padding: 20px;
-  color: #777;
-}
-</style>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Γκουγκουλή Βασιλική | Δικηγόρος – Διαμεσολαβήτρια</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+
 <nav class="navbar">
-  <div class="logo">Γκουγκουλή Βασιλική</div>
-  <ul>
-    <li><a href="index.html">Αρχική</a></li>
-    <li><a href="about.html">Βιογραφικό</a></li>
-    <li><a href="mediation.html">Διαμεσολάβηση</a></li>
-    <li><a href="contact.html">Επικοινωνία</a></li>
-  </ul>
+    <div class="logo">Γκουγκουλή Βασιλική</div>
+    <ul>
+        <li><a href="index.html" class="active">Αρχική</a></li>
+        <li><a href="about.html">Βιογραφικό</a></li>
+        <li><a href="mediation.html">Διαμεσολάβηση</a></li>
+        <li><a href="contact.html">Επικοινωνία</a></li>
+    </ul>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-content">
-    <h1>Γκουγκουλή Βασιλική</h1>
-    <p>Δικηγόρος – Διαμεσολαβήτρια</p>
-  </div>
+<div class="hero" style="background-image: url('img/hero.jpg');">
+    <div class="hero-content">
+        <h1>Γκουγκουλή Βασιλική</h1>
+        <p>Δικηγόρος – Πιστοποιημένη Διαμεσολαβήτρια</p>
+        <a href="contact.html" class="btn-cta">Κλείστε Ραντεβού</a>
+    </div>
 </div>
 
-<!-- BIO -->
-<section id="about" style="position:relative; z-index:1;">
-  <h2 style="text-align:center;">Σχετικά</h2>
-  <p style="text-align:center; max-width:800px; margin: 0 auto;">
-    Η Γκουγκουλή Βασιλική είναι δικηγόρος και πιστοποιημένη διαμεσολαβήτρια,
-    με εμπειρία στην εξωδικαστική επίλυση διαφορών και στην παροχή
-    αξιόπιστων νομικών υπηρεσιών.
-  </p>
-  <p style="text-align:center; max-width:800px; margin: 20px auto 0 auto;">
-    Στόχος της είναι η αποτελεσματική, ανθρώπινη και ασφαλής επίλυση
-    διαφορών, με σεβασμό στα μέρη και στις ιδιαιτερότητες κάθε υπόθεσης.
-  </p>
-
-  <!-- FULL-WIDTH transparent panel -->
-  <div style="
-        position:relative;
-        width:100vw;           /* full width της οθόνης */
-        left:50%;               /* για να αφαιρέσουμε margin από body */
-        right:50%;
-        margin-left:-50vw;
-        margin-right:-50vw;
-        background: rgba(0,0,80,0.85); /* σκουρό μπλε διάφανο */
-        padding:60px 0;
-        display:flex;
-        justify-content:center;
-      ">
-    <div class="counters" style="display:flex; gap:100px; justify-content:center; flex-wrap:wrap;">
-      <div class="counter-item" style="text-align:center; opacity:0; transform: translateY(30px); transition: all 1s ease;">
-        <div class="count" data-target="52" style="font-size:64px; color:white; font-weight:bold;">0</div>
-        <div style="font-size:18px; margin-top:8px; color:white; font-weight:bold;">Διεκπεραιωμένες διαμεσολαβήσεις</div>
-      </div>
-      <div class="counter-item" style="text-align:center; opacity:0; transform: translateY(30px); transition: all 1s ease;">
-        <div class="count" data-target="5" style="font-size:64px; color:white; font-weight:bold;">0</div>
-        <div style="font-size:18px; margin-top:8px; color:white; font-weight:bold;">Χρόνια εμπειρίας στις διαμεσολαβήσεις</div>
-      </div>
-    </div>
-  </div>
+<section class="container">
+    <h2>Καλώς Ορίσατε</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+        Στόχος μου είναι η αποτελεσματική, ανθρώπινη και ασφαλής επίλυση διαφορών, 
+        με σεβασμό στα μέρη και στις ιδιαιτερότητες κάθε υπόθεσης. 
+        Η διαμεσολάβηση προσφέρει μια σύγχρονη διέξοδο μακριά από τις δικαστικές αίθουσες.
+    </p>
 </section>
 
-<!-- JS για smooth animation + fade-in -->
-<script>
-  const counters = document.querySelectorAll('.count');
-  const counterItems = document.querySelectorAll('.counter-item');
-  let countersAnimated = false;
-
-  function animateCounters() {
-    if(countersAnimated) return;
-    const section = document.getElementById('about');
-    const sectionTop = section.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-
-    if(sectionTop < windowHeight - 100) {
-      // Fade-in και ανόρθωση
-      counterItems.forEach((item, index) => {
-        setTimeout(() => {
-          item.style.opacity = 1;
-          item.style.transform = "translateY(0)";
-        }, index * 200);
-      });
-
-      // Μετρητές
-      counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        let current = 0;
-
-        const duration = target === 5 ? 3000 : 2000;
-        const stepTime = Math.abs(Math.floor(duration / target));
-
-        const counterInterval = setInterval(() => {
-          current += 1;
-          counter.innerText = current;
-          if(current >= target) {
-            counter.innerText = target;
-            clearInterval(counterInterval);
-          }
-        }, stepTime);
-      });
-
-      countersAnimated = true;
-    }
-  }
-
-  window.addEventListener('scroll', animateCounters);
-  window.addEventListener('load', animateCounters);
-</script>
-
-
-<!-- PANEL -->
-<div class="panel">
-  <div class="panel-overlay">
-    <h2 style="text-align:center;">ΓΙΑΤΙ ΝΑ ΕΠΙΛΕΞΕΤΕ ΤΗ ΔΙΑΜΕΣΟΛΑΒΗΣΗ</h2>
-
-    <div class="panel-item">
-      💬
-      <p>
-        Η διαμεσολάβηση σας δίνει τη δυνατότητα να βρείτε λύσεις που επιλέγετε εσείς και τα άλλα εμπλεκόμενα μέρη, χωρίς να επιβάλλονται από δικαστή ή διαιτητή.
-      </p>
+<div class="blue-panel" id="counters-section">
+    <div class="counter-wrapper">
+        <div class="counter-item">
+            <div class="count" data-target="52" style="font-size: 48px; font-weight: bold;">0</div>
+            <div>Διεκπεραιωμένες Διαμεσολαβήσεις</div>
+        </div>
+        <div class="counter-item">
+            <div class="count" data-target="5" style="font-size: 48px; font-weight: bold;">0</div>
+            <div>Χρόνια Εμπειρίας</div>
+        </div>
     </div>
-
-    <div class="panel-item">
-      🤝
-      <p>
-        Η διαδικασία βασίζεται στον αμοιβαίο σεβασμό, τον διάλογο και τη συνεργασία, προσφέροντας ένα ασφαλές και ισότιμο περιβάλλον για όλες τις πλευρές.
-      </p>
-    </div>
-
-    <div class="panel-item">
-      ⚖️
-      <p>
-        Η συμφωνία που προκύπτει έχει νομική ισχύ αντίστοιχη με αυτή μιας δικαστικής απόφασης, εξασφαλίζοντας σταθερότητα και αξιοπιστία.
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<div class="contact">
-  <h2>Επικοινωνία</h2>
-  <p>Email: vasia.gougouli@gmail.com</p>
-  <p>Τηλέφωνο: 69XXXXXXXX</p>
-  <p>Αθήνα</p>
 </div>
 
 <footer>
-© 2026 Γκουγκουλή Βασιλική
+    © 2026 Γκουγκουλή Βασιλική | Designed by You
 </footer>
+
+<script>
+    const counters = document.querySelectorAll('.count');
+    let hasAnimated = false;
+
+    window.addEventListener('scroll', () => {
+        const section = document.getElementById('counters-section');
+        const sectionPos = section.getBoundingClientRect().top;
+        const screenPos = window.innerHeight;
+
+        if(sectionPos < screenPos && !hasAnimated) {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const speed = 200; 
+                const updateCount = () => {
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+                    if(count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                }
+                updateCount();
+            });
+            hasAnimated = true;
+        }
+    });
+</script>
 
 </body>
 </html>
