@@ -22,12 +22,27 @@ body {
   z-index: 1000;
 }
 
-.logo {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #2c3e50;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+/* LOGO STYLES */
+
+/* Ρυθμίζει το link του λογοτύπου */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Βγάζει την υπογράμμιση */
+}
+
+/* Ρυθμίζει την εικόνα */
+.logo-img {
+    height: 60px; /* Ρύθμισε το ύψος όσο θέλεις (π.χ. 50px έως 80px) */
+    width: auto;  /* Το πλάτος προσαρμόζεται αυτόματα */
+    object-fit: contain; /* Για να μην παραμορφωθεί η εικόνα */
+}
+
+/* Αν θέλεις να μικραίνει λίγο σε κινητά */
+@media (max-width: 768px) {
+    .logo-img {
+        height: 45px;
+    }
 }
 
 .navbar ul {
