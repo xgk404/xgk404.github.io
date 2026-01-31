@@ -11,13 +11,14 @@ body {
 
 /* NAVBAR */
 .navbar {
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  padding: 15px 5%;
+  background: #2c3e50; /* <-- ΑΛΛΑΓΗ: Σκούρο μπλε αντί για #fff */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Λίγο πιο έντονη σκιά */
+  /* Τα υπόλοιπα μένουν ίδια */
+  padding: 10px 5%; /* Μειώσαμε λίγο το padding για να μην είναι τεράστιο το μενού */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky; /* Κολλάει πάνω όταν κάνεις scroll */
+  position: sticky;
   top: 0;
   z-index: 1000;
 }
@@ -60,9 +61,16 @@ body {
 
 .navbar ul li a {
   text-decoration: none;
-  color: #555;
+  color: #ecf0f1; /* <-- ΑΛΛΑΓΗ: Σχεδόν λευκό χρώμα για να διαβάζεται */
   font-weight: 500;
   transition: color 0.3s;
+  font-size: 1.1rem; /* Λίγο πιο μεγάλα γράμματα */
+}
+
+/* Το χρώμα όταν περνάει το ποντίκι από πάνω μένει το ίδιο (χρυσό) */
+.navbar ul li a:hover,
+.navbar ul li a.active {
+  color: #b78a38; /* Χρυσό */
 }
 
 .navbar ul li a:hover,
