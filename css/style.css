@@ -11,16 +11,17 @@ body {
 
 /* NAVBAR */
 .navbar {
-  background: #2c3e50; /* <-- ΑΛΛΑΓΗ: Σκούρο μπλε αντί για #fff */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Λίγο πιο έντονη σκιά */
+  background: #2c3e50;
+  padding: 0 5%;  /* <--- ΑΛΛΑΓΗ: Βάλε 0 για να μην έχει καθόλου κενό πάνω-κάτω */
   /* Τα υπόλοιπα μένουν ίδια */
-  padding: 10px 5%; /* Μειώσαμε λίγο το padding για να μην είναι τεράστιο το μενού */
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  height: 80px; /* <--- ΠΡΟΑΙΡΕΤΙΚΟ: Καρφώνουμε το ύψος στα 80px για σταθερότητα */
 }
 
 /* LOGO STYLES */
