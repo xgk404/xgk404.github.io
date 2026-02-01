@@ -294,71 +294,81 @@ h2::after {
    COUNTERS ΜΕ ΛΕΥΚΑ ΤΕΤΡΑΓΩΝΑ (CARDS)
    ========================================= */
 
+/* =========================================
+   COUNTERS "GLASS EFFECT" (ΚΟΜΨΟ & ΔΙΑΚΡΙΤΙΚΟ)
+   ========================================= */
+
 .blue-panel {
     background: #2c3e50; /* Σκούρο μπλε φόντο */
-    padding: 80px 0;     /* Λίγο περισσότερος χώρος πάνω-κάτω */
+    padding: 80px 0;
     text-align: center;
 }
 
 .counter-wrapper {
     display: flex;
     justify-content: center;
-    gap: 40px;          /* Απόσταση μεταξύ των τετραγώνων */
+    gap: 40px;
     flex-wrap: wrap;
 }
 
-/* Το Λευκό Τετράγωνο Κουτί */
+/* Το Κουτί (Τώρα είναι ημιδιάφανο "Glass") */
 .counter-box {
-    background-color: #ffffff;
-    width: 260px;       /* Σταθερό πλάτος για να είναι τετραγωνισμένο */
+    background-color: rgba(255, 255, 255, 0.05); /* 5% λευκό, σχεδόν διάφανο */
+    width: 260px;
     padding: 40px 20px;
-    border-radius: 4px; /* Ελαφρώς στρογγυλεμένες γωνίες */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Σκιά για να ξεχωρίζει από το μπλε */
+    border-radius: 4px;
+    
+    /* Λεπτό περίγραμμα για να ξεχωρίζει διακριτικά */
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-/* Εφέ όταν περνάει το ποντίκι πάνω από το τετράγωνο */
+/* Εφέ όταν περνάει το ποντίκι */
 .counter-box:hover {
-    transform: translateY(-10px); /* Σηκώνεται λίγο */
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.1); /* Γίνεται λίγο πιο φωτεινό */
+    border-color: #b78a38; /* Το περίγραμμα γίνεται χρυσό */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
-/* Το Εικονίδιο (Απλό, Μεγάλο, Χρυσό) */
+/* Το Εικονίδιο */
 .counter-icon-simple {
-    font-size: 3.5rem;  /* Μεγάλο μέγεθος */
-    color: #b78a38;     /* Χρυσό χρώμα */
+    font-size: 3.5rem;
+    color: #b78a38;     /* Χρυσό */
     margin-bottom: 20px;
 }
 
-/* Ο Αριθμός */
+/* Ο Αριθμός (Τώρα Λευκός) */
 .count {
     font-size: 3.5rem;
     font-weight: 800;
-    color: #2c3e50;     /* Μπλε σκούρο (για να φαίνεται στο λευκό) */
+    color: #ffffff;     /* Λευκό για να φαίνεται στο σκούρο */
     line-height: 1;
     margin-bottom: 10px;
 }
 
-/* Το κείμενο (π.χ. Χρόνια Εμπειρίας) */
+/* Το κείμενο (Τώρα Αχνό Λευκό/Γκρι) */
 .counter-label {
     font-size: 1.1rem;
     font-weight: 500;
-    color: #555;        /* Γκρι */
+    color: #bdc3c7;     /* Ανοιχτό γκρι */
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Responsive για κινητά */
+/* Responsive */
 @media (max-width: 600px) {
     .counter-wrapper {
         flex-direction: column;
         align-items: center;
     }
     .counter-box {
-        width: 80%; /* Πιο πλατύ στα κινητά */
+        width: 80%;
     }
 }
 
