@@ -105,25 +105,34 @@
 
     window.addEventListener('scroll', () => {
         const section = document.getElementById('counters-section');
-        if(!section) return; // Ασφάλεια σε περίπτωση που λείπει
+        if(!section) return;
+        
         const sectionPos = section.getBoundingClientRect().top;
         const screenPos = window.innerHeight;
 
         if(sectionPos < screenPos && !hasAnimated) {
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
-                const speed = 200; 
-                const updateCount = () => {
-                    const count = +counter.innerText;
-                    const inc = target / speed;
-                    if(count < target) {
-                        counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 20);
+                const duration = +counter.getAttribute('data-duration') || 2000; // Default 2 δευτερόλεπτα
+                
+                const start = 0;
+                const startTime = performance.now();
+
+                const updateCount = (currentTime) => {
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / duration, 1); // Ποσοστό ολοκλήρωσης (0 έως 1)
+
+                    // Υπολογισμός τρέχοντος αριθμού (Math.floor για ακέραιους)
+                    counter.innerText = Math.floor(progress * (target - start) + start);
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
                     } else {
-                        counter.innerText = target;
+                        counter.innerText = target; // Βεβαίωση ότι τερματίζει ακριβώς στο target
                     }
-                }
-                updateCount();
+                };
+
+                requestAnimationFrame(updateCount);
             });
             hasAnimated = true;
         }
