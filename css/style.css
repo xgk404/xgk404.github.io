@@ -303,31 +303,83 @@ h2::after {
     flex-wrap: wrap;
 }
 
-/* CONTACT FORM */
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
+/* =========================================
+   CONTACT PAGE - MINIMAL FORM STYLES
+   ========================================= */
+
+.minimal-form .form-group {
+    margin-bottom: 30px; /* Απόσταση μεταξύ των πεδίων */
 }
-.form-group {
-  margin-bottom: 15px;
+
+/* Στυλ για τις ετικέτες (Labels) */
+.minimal-form label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666; /* Γκρι χρώμα όπως στη φωτογραφία */
+    margin-bottom: 5px;
+    font-weight: 500;
 }
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
+
+/* Στυλ για τα inputs (Μόνο κάτω γραμμή) */
+.lined-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc; /* Λεπτή γκρι γραμμή κάτω */
+    background: transparent;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: #333;
+    outline: none; /* Αφαιρεί το μπλε πλαίσιο του browser */
+    transition: border-color 0.3s;
 }
-.form-group input, .form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+
+/* Όταν κάνει κλικ ο χρήστης, η γραμμή γίνεται μπλε */
+.lined-input:focus {
+    border-bottom: 2px solid #2c3e50;
 }
-.form-group button {
-  background: #b78a38;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
+
+/* Στυλ για το πεδίο Μηνύματος (Lines effect) */
+.lined-textarea {
+    width: 100%;
+    border: none;
+    /* Αυτό το gradient δημιουργεί τις γραμμές σαν τετράδιο */
+    background-image: linear-gradient(transparent 39px, #ccc 40px);
+    background-size: 100% 40px;
+    line-height: 40px; /* Πρέπει να είναι ίδιο με το background-size */
+    
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    resize: vertical; /* Επιτρέπει αλλαγή μεγέθους μόνο κάθετα */
+    font-family: inherit;
+    padding: 0;
+}
+
+.lined-textarea:focus {
+    /* Προαιρετικά: Μπορούμε να βάλουμε μια πιο έντονη γραμμή στο τέλος ή αριστερά */
+    background-image: linear-gradient(transparent 39px, #2c3e50 40px);
+}
+
+/* Στυλ Κουμπιού */
+.btn-submit {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #b78a38; /* Χρυσό στο hover */
+}
+
+/* Λίγη μορφοποίηση για τα στοιχεία επικοινωνίας αριστερά */
+.contact-details p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
 }
 
 /* FOOTER */
