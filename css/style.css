@@ -612,83 +612,58 @@ footer {
    ========================================= */
 
 .plum-panel {
-    background-color: #502c3e; /* Το βουργουνδί χρώμα */
+    background-color: #502c3e;
     width: 100%;
-    padding: 50px;
+    max-width: 900px; /* Προσθέσαμε max-width για να μην απλώνει τεράστιο */
+    margin: 0 auto;   /* Κεντράρισμα */
+    
+    /* ΑΛΛΑΓΗ: Μειωμένο padding για να είναι πιο "μαζεμένο" */
+    padding: 40px 30px; 
+    
     border-radius: 8px;
     box-shadow: 0 15px 40px rgba(80, 44, 62, 0.25);
-    color: white; /* Όλα τα γράμματα λευκά */
+    color: white;
     text-align: center;
-    margin-top: 20px;
+    
+    /* Animation */
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
-/* Ρυθμίσεις για τον τίτλο μέσα στο βουργουνδί πάνελ */
+/* Τα υπόλοιπα για τον τίτλο και το κουμπί μένουν ίδια... */
 .plum-panel h2 {
-    color: #ffffff !important; /* Αναγκαστικά λευκό */
-    border-bottom: none; /* Αφαιρούμε την προεπιλεγμένη γραμμή αν υπάρχει */
+    color: #ffffff !important;
+    border-bottom: none;
     display: inline-block;
-}
-
-.plum-panel h2::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: #b78a38; /* Χρυσή γραμμή */
-    margin: 10px auto 20px; /* Κεντράρισμα */
+    margin-bottom: 10px; /* Μικρότερο κενό */
 }
 
 .plum-panel p {
     color: #ecf0f1;
     font-size: 1.1rem;
-    margin-bottom: 30px;
+    margin-bottom: 25px; /* Μικρότερο κενό πριν το κουμπί */
 }
 
-/* Λίστα κεντραρισμένη */
-.home-list-centered {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+/* =========================================
+   ΝΕΟ: ΣΤΥΛ ΓΙΑ ΤΑ ΕΙΚΟΝΙΔΙΑ ΣΤΑ COUNTERS
+   ========================================= */
+.counter-icon {
+    font-size: 2.5rem; /* Μεγεθος εικονιδίου */
+    color: #b78a38;    /* Χρυσό χρώμα */
+    margin-bottom: 15px;
+    display: block;    /* Να μπει σε δική του γραμμή πάνω από το νούμερο */
 }
 
-.home-list-centered li {
-    color: white;
-    font-size: 1.1rem;
-}
-
-.home-list-centered li i {
-    color: #b78a38;
-    margin-right: 8px;
-}
-
-/* Κουμπί Λευκό (Contrast) */
-.btn-white-contrast {
-    background-color: #ffffff;
-    color: #502c3e; /* Γράμματα στο χρώμα του φόντου */
-    border: 2px solid #ffffff;
-}
-
-.btn-white-contrast:hover {
-    background-color: transparent;
-    color: #ffffff; /* Γίνονται λευκά στο hover */
-}
-
-/* Responsive για κινητά */
-@media (max-width: 768px) {
-    .plum-panel {
-        padding: 30px 20px;
+/* =========================================
+   ANIMATION KEYFRAMES (Αν δεν υπάρχουν ήδη)
+   ========================================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
     }
-    .home-list-centered {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .btn-white-contrast {
-        width: 100%;
-        box-sizing: border-box;
-        text-align: center;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
