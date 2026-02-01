@@ -110,6 +110,14 @@
 </footer>
 
 <script>
+
+     // Script για το Hamburger Menu
+    function toggleMenu() {
+        const navLinks = document.getElementById('nav-links');
+        // Προσθέτει ή αφαιρεί την κλάση 'show' που εμφανίζει το μενού στο CSS
+        navLinks.classList.toggle('show');
+    }
+    
     const counters = document.querySelectorAll('.count');
     let hasAnimated = false;
 
@@ -147,16 +155,6 @@
             hasAnimated = true;
         }
     });
-</script>
-    <script>
-    // Script για το Hamburger Menu
-    function toggleMenu() {
-        const navLinks = document.getElementById('nav-links');
-        // Προσθέτει ή αφαιρεί την κλάση 'show' που εμφανίζει το μενού στο CSS
-        navLinks.classList.toggle('show');
-    }
-
-    // ...εδώ ακολουθεί το script για τα counters που είχαμε βάλει πριν...
 </script>
 
 </body>
