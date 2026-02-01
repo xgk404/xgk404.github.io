@@ -247,36 +247,6 @@ body {
     }
 }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar ul li {
-  margin-left: 20px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #ecf0f1; /* <-- ΑΛΛΑΓΗ: Σχεδόν λευκό χρώμα για να διαβάζεται */
-  font-weight: 500;
-  transition: color 0.3s;
-  font-size: 1.1rem; /* Λίγο πιο μεγάλα γράμματα */
-}
-
-/* Το χρώμα όταν περνάει το ποντίκι από πάνω μένει το ίδιο (χρυσό) */
-.navbar ul li a:hover,
-.navbar ul li a.active {
-  color: #b78a38; /* Χρυσό */
-}
-
-.navbar ul li a:hover,
-.navbar ul li a.active {
-  color: #b78a38; /* Χρυσό χρώμα για έμφαση */
-}
-
 /* HERO SECTION */
 .hero {
   background: url("../img/hero.jpg") center/cover no-repeat;
@@ -614,12 +584,6 @@ footer {
     color: #b78a38; /* Γίνονται χρυσά ΜΟΝΟ στο hover */
     text-decoration: none;
 }
-/* MOBILE */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .navbar { flex-direction: column; }
-  .navbar ul { margin-top: 15px; }
-}
 
 /* =========================================
    HOMEPAGE NEW SECTIONS (ΔΙΟΡΘΩΜΕΝΟ)
@@ -854,7 +818,6 @@ footer {
     .plum-panel {
         padding: 40px 20px;
     }
-}margin-bottom: 25px; /* Μικρότερο κενό πριν το κουμπί */
 }
 
 /* =========================================
