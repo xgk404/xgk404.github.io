@@ -5,6 +5,7 @@
     <title>Γκουγκουλή Βασιλική | Δικηγόρος – Διαμεσολαβήτρια</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -28,20 +29,50 @@
     </div>
 </div>
 
-<section class="container">
-    <h2>Καλώς Ορίσατε</h2>
-    <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-        Στόχος μου είναι η αποτελεσματική, ανθρώπινη και ασφαλής επίλυση διαφορών, 
-        με σεβασμό στα μέρη και στις ιδιαιτερότητες κάθε υπόθεσης. 
-        Η διαμεσολάβηση προσφέρει μια σύγχρονη διέξοδο μακριά από τις δικαστικές αίθουσες.
-    </p>
+<section class="section-light">
+    <div class="container-grid">
+        <div class="text-content">
+            <h2>Διαμεσολάβηση: Η Σύγχρονη Λύση</h2>
+            <p>
+                Η διαμεσολάβηση προσφέρει μια ταχύτατη και πολιτισμένη διέξοδο μακριά από τις δικαστικές αίθουσες. 
+                Επιλύστε τις διαφορές σας οικονομικά, με απόλυτη εμπιστευτικότητα και με τον έλεγχο της απόφασης στα δικά σας χέρια.
+            </p>
+            <ul class="home-list">
+                <li><i class="fas fa-check"></i> Ταχύτητα & Ευελιξία</li>
+                <li><i class="fas fa-check"></i> Χαμηλό Κόστος</li>
+                <li><i class="fas fa-check"></i> Διατήρηση Σχέσεων</li>
+            </ul>
+            <a href="mediation.html" class="btn-gold-outline">Περισσότερα για τη Διαμεσολάβηση</a>
+        </div>
+        <div class="icon-content">
+            <i class="fas fa-handshake" style="font-size: 100px; color: #b78a38; opacity: 0.8;"></i>
+        </div>
+    </div>
+</section>
+
+<section class="section-white">
+    <div class="container-grid reverse-mobile">
+        <div class="image-content">
+            <img src="img/lawyer.jpeg" alt="Γκουγκουλή Βασιλική" class="home-profile-img">
+        </div>
+        <div class="text-content">
+            <h2>Η Δικηγόρος</h2>
+            <p>
+                Η Γκουγκουλή Βασιλική είναι Δικηγόρος Παρ' Αρείω Πάγω και Διαπιστευμένη Διαμεσολαβήτρια, με εξειδίκευση στο Ποινικό Δίκαιο και την εξωδικαστική επίλυση διαφορών.
+            </p>
+            <p>
+                Με έμφαση στην προληπτική δικηγορία και την ανθρώπινη προσέγγιση, στόχος είναι η αποτελεσματική υπεράσπιση των συμφερόντων σας.
+            </p>
+            <a href="about.html" class="btn-dark">Διαβάστε το Βιογραφικό</a>
+        </div>
+    </div>
 </section>
 
 <div class="blue-panel" id="counters-section">
     <div class="counter-wrapper">
         <div class="counter-item">
             <div class="count" data-target="52" style="font-size: 48px; font-weight: bold;">0</div>
-            <div>Διεκπεραιωμένες Διαμεσολαβήσεις</div>
+            <div>Διεκπεραιωμένες Υποθέσεις</div>
         </div>
         <div class="counter-item">
             <div class="count" data-target="5" style="font-size: 48px; font-weight: bold;">0</div>
@@ -49,6 +80,12 @@
         </div>
     </div>
 </div>
+
+<section class="cta-section">
+    <h2>Χρειάζεστε Νομική Συμβουλή;</h2>
+    <p>Επικοινωνήστε μαζί μας για μια πρώτη εκτίμηση της υπόθεσής σας.</p>
+    <a href="contact.html" class="btn-cta-big">Επικοινωνία</a>
+</section>
 
 <footer class="site-footer">
     <div class="footer-content">
@@ -61,7 +98,8 @@
             <span>✉️ <a href="mailto:vasia.gougouli@gmail.com">vasia.gougouli@gmail.com</a></span>
         </div>
         
-        <br> <br> <div class="copyright">
+        <br> <br> 
+        <div class="copyright">
             © 2026 Γκουγκουλή Βασιλική. All Rights Reserved.
         </div>
     </div>
@@ -73,6 +111,7 @@
 
     window.addEventListener('scroll', () => {
         const section = document.getElementById('counters-section');
+        if(!section) return; // Ασφάλεια σε περίπτωση που λείπει
         const sectionPos = section.getBoundingClientRect().top;
         const screenPos = window.innerHeight;
 
