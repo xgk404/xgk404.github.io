@@ -304,118 +304,153 @@ h2::after {
 }
 
 /* =========================================
-   CONTACT PAGE - DARK PANEL STYLE
+   CONTACT PAGE - DARK PANEL WITH LINES
    ========================================= */
 
 .contact-section {
-    padding-bottom: 60px;
+    padding-bottom: 80px;
 }
 
 .contact-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 60px; /* Μεγαλύτερο κενό ανάμεσα σε πληροφορίες και φόρμα */
     justify-content: space-between;
     align-items: flex-start;
 }
 
 /* Ρυθμίσεις για την αριστερή πλευρά (Πληροφορίες) */
 .contact-info-side {
-    flex: 1;
-    min-width: 300px;
+    flex: 1; /* Πιάνει το 1 μέρος του χώρου */
+    min-width: 250px;
+    padding-top: 20px; /* Για να ευθυγραμμιστεί οπτικά με τον τίτλο της φόρμας */
 }
 
-.map-container {
-    margin-top: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Ελαφριά σκιά στον χάρτη */
-    border-radius: 8px;
-    overflow: hidden;
+.contact-details p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #333;
 }
 
 /* --- ΤΟ ΜΠΛΕ ΠΑΝΕΛ ΤΗΣ ΦΟΡΜΑΣ --- */
-.form-panel.dark-panel {
-    flex: 1;
-    min-width: 300px;
+.form-panel.dark-panel-lined {
+    flex: 2; /* Πιάνει τα 2 μέρη του χώρου (άρα είναι πιο φαρδύ) */
+    min-width: 320px; /* Ελάχιστο πλάτος πριν σπάσει σε κινητό */
     background-color: #2c3e50; /* Το σκούρο μπλε */
-    padding: 40px;
+    padding: 50px; /* Πιο ευρύχωρο padding */
     border-radius: 8px;
     color: white;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Ωραία σκιά για βάθος */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2); /* Έντονη σκιά για βάθος */
 }
 
 .form-panel h3 {
     color: #ffffff;
     border-bottom: 2px solid #b78a38; /* Χρυσή γραμμή κάτω από τον τίτλο */
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    font-size: 1.5rem;
 }
 
-/* Στυλ για τα πεδία (Inputs) μέσα στο μπλε κουτί */
-.pro-contact-form .form-group {
-    margin-bottom: 20px;
+.form-group {
+    margin-bottom: 25px;
 }
 
-.pro-contact-form label {
+/* Στυλ για τις ετικέτες (Labels) μέσα στο μπλε κουτί */
+.dark-panel-lined label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: 500;
-    color: #ecf0f1; /* Σχεδόν λευκό */
+    color: #bdc3c7; /* Ανοιχτό γκρι για να μην "χτυπάει" πολύ */
+    font-size: 0.95rem;
 }
 
-.pro-contact-form input,
-.pro-contact-form textarea {
+/* --- ΣΤΥΛ ΓΡΑΜΜΩΝ (LINED INPUTS) ΣΕ ΣΚΟΥΡΟ ΦΟΝΤΟ --- */
+
+/* Τα απλά πεδία (Input types) */
+.lined-input-dark {
     width: 100%;
-    padding: 12px;
-    background-color: rgba(255, 255, 255, 0.1); /* Ελαφρώς διαφανές φόντο */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Αχνό λευκό περίγραμμα */
-    border-radius: 4px;
-    color: white; /* Λευκά γράμματα όταν γράφει ο χρήστης */
+    background: transparent; /* Διαφανές φόντο */
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Αχνή λευκή γραμμή κάτω */
+    padding: 10px 0;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    color: #ffffff; /* Λευκά γράμματα όταν γράφει ο χρήστης */
     outline: none;
-    transition: all 0.3s;
+    transition: border-color 0.3s;
 }
 
 /* Όταν κάνει κλικ μέσα στο πεδίο */
-.pro-contact-form input:focus,
-.pro-contact-form textarea:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: #b78a38; /* Γίνεται χρυσό το περίγραμμα */
+.lined-input-dark:focus {
+    border-bottom: 2px solid #b78a38; /* Η γραμμή γίνεται χρυσή */
+}
+
+/* Το πεδίο Μηνύματος (Textarea) με εφέ γραμμών */
+.lined-textarea-dark {
+    width: 100%;
+    background: transparent;
+    border: none;
+    /* Δημιουργία των γραμμών με gradient */
+    background-image: linear-gradient(transparent 39px, rgba(255, 255, 255, 0.4) 40px);
+    background-size: 100% 40px; /* Το ύψος της γραμμής */
+    line-height: 40px; /* Πρέπει να είναι ίδιο με το background-size για να πατάνε τα γράμματα στη γραμμή */
+    
+    padding: 0;
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: #ffffff;
+    outline: none;
+    resize: vertical;
+}
+
+.lined-textarea-dark:focus {
+     /* Προαιρετικά: αν θες να αλλάζουν χρώμα οι γραμμές όταν γράφει */
+    /* background-image: linear-gradient(transparent 39px, #b78a38 40px); */
 }
 
 /* Το κουμπί αποστολής - Χρυσό */
 .btn-submit-gold {
-    width: 100%;
+    width: auto; /* Το αφήνουμε να πάρει το μέγεθος του κειμένου */
+    min-width: 200px; /* Αλλά τουλάχιστον τόσο μεγάλο */
     background-color: #b78a38;
     color: white;
     border: none;
-    padding: 15px;
+    padding: 15px 30px;
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
-    margin-top: 10px;
-    transition: background 0.3s, transform 0.2s;
+    transition: all 0.3s;
+    letter-spacing: 1px;
 }
 
 .btn-submit-gold:hover {
-    background-color: #96702b; /* Πιο σκούρο χρυσό */
-    transform: translateY(-2px); /* Ελαφριά κίνηση προς τα πάνω */
+    background-color: #ffffff; /* Γίνεται λευκό στο hover */
+    color: #2c3e50; /* Με μπλε γράμματα */
+    transform: translateY(-2px);
 }
 
 /* Mobile Adjustment */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     .contact-wrapper {
         flex-direction: column;
+        gap: 40px;
     }
-    .form-panel {
+    .contact-info-side, 
+    .form-panel.dark-panel-lined {
         width: 100%;
-        padding: 25px; /* Λίγο μικρότερο padding στα κινητά */
-        box-sizing: border-box;
+        flex: auto;
+    }
+    
+    .form-panel.dark-panel-lined {
+        padding: 30px;
+    }
+    
+    .btn-submit-gold {
+        width: 100%; /* Στο κινητό το κουμπί πιάνει όλο το πλάτος */
     }
 }
-
 /* FOOTER */
 footer {
   text-align: center;
