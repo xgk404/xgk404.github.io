@@ -589,3 +589,100 @@ footer {
     border-radius: 4px;
     transition: all 0.3s ease;
     text-transform
+
+  /* =========================================
+   MEDIATION PLUM PANEL (#502c3e)
+   ========================================= */
+
+.plum-panel {
+    background-color: #502c3e; /* Το χρώμα που ζήτησες */
+    width: 100%;
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(80, 44, 62, 0.25); /* Σκιά με την απόχρωση του χρώματος */
+    color: white;
+    text-align: center; /* Κεντράρισμα κειμένου για πιο ωραίο εφέ */
+}
+
+/* Ρυθμίσεις κειμένου ΜΕΣΑ στο πάνελ */
+.text-content-centered h2 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    display: inline-block; /* Για να δουλέψει η γραμμή από κάτω */
+}
+
+.text-content-centered h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #b78a38; /* Χρυσή γραμμή */
+    margin: 15px auto 0; /* Κεντράρισμα γραμμής */
+}
+
+.text-content-centered p {
+    font-size: 1.1rem;
+    color: #ecf0f1; /* Σχεδόν λευκό για να είναι ξεκούραστο */
+    margin-bottom: 30px;
+    max-width: 800px; /* Να μην απλώνει πολύ το κείμενο */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+/* Λίστα κεντραρισμένη */
+.home-list-centered {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Κενό ανάμεσα στα στοιχεία */
+    flex-wrap: wrap;
+}
+
+.home-list-centered li {
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.home-list-centered li i {
+    color: #b78a38;
+    margin-right: 8px;
+}
+
+/* Νέο Κουμπί: Solid Gold (Γεμάτο Χρυσό) */
+/* Επειδή το background είναι σκούρο, το περίγραμμα δεν φαίνεται καλά, άρα βάζουμε γεμάτο χρώμα */
+.btn-gold-solid {
+    display: inline-block;
+    background-color: #b78a38;
+    color: #ffffff;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    border: 2px solid #b78a38;
+}
+
+.btn-gold-solid:hover {
+    background-color: transparent; /* Γίνεται διάφανο */
+    color: #b78a38; /* Τα γράμματα γίνονται χρυσά */
+    border-color: #b78a38;
+}
+
+/* Responsive για κινητά */
+@media (max-width: 768px) {
+    .plum-panel {
+        padding: 40px 20px;
+    }
+    
+    .home-list-centered {
+        flex-direction: column; /* Στο κινητό η λίστα πάει κάθετα */
+        gap: 15px;
+    }
+}
