@@ -20,7 +20,7 @@ h1, h2, h3, h4 {
    ========================================= */
 .navbar {
     background: #2c3e50;
-    padding: 0 5%; /* Χωρίς κενό πάνω-κάτω όπως ζήτησες */
+    padding: 0 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,10 +28,9 @@ h1, h2, h3, h4 {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    height: 80px; /* Σταθερό ύψος */
+    height: 80px;
 }
 
-/* Logo */
 .logo-link {
     display: flex;
     align-items: center;
@@ -40,13 +39,12 @@ h1, h2, h3, h4 {
 }
 
 .logo-img {
-    height: 70px; /* Το μέγεθος που ζήτησες */
+    height: 70px;
     width: auto;
     object-fit: contain;
     padding: 5px 0;
 }
 
-/* Menu Links */
 .navbar ul {
     list-style: none;
     display: flex;
@@ -60,7 +58,7 @@ h1, h2, h3, h4 {
 
 .navbar ul li a {
     text-decoration: none;
-    color: #ecf0f1; /* Σχεδόν λευκό */
+    color: #ecf0f1;
     font-weight: 500;
     transition: color 0.3s;
     font-size: 1.1rem;
@@ -68,10 +66,9 @@ h1, h2, h3, h4 {
 
 .navbar ul li a:hover,
 .navbar ul li a.active {
-    color: #b78a38; /* Χρυσό */
+    color: #b78a38;
 }
 
-/* Mobile Navbar */
 @media (max-width: 768px) {
     .navbar {
         height: auto;
@@ -79,7 +76,7 @@ h1, h2, h3, h4 {
         flex-direction: column;
     }
     .logo-img {
-        height: 50px; /* Μικρότερο σε κινητά */
+        height: 50px;
     }
     .navbar ul {
         margin-top: 15px;
@@ -109,7 +106,7 @@ h1, h2, h3, h4 {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.5); /* Σκούρο φίλτρο */
+    background: rgba(0,0,0,0.5);
 }
 
 .hero-content {
@@ -152,7 +149,6 @@ h1, h2, h3, h4 {
     flex: 1;
 }
 
-/* Blue Bar Counters */
 .blue-panel {
     background: #2c3e50;
     color: white;
@@ -458,23 +454,23 @@ footer {
 }
 
 /* =========================================
-   8. HOMEPAGE NEW SECTIONS (FIXED)
+   8. HOMEPAGE STYLES (UPDATED)
    ========================================= */
 
-/* Sections */
+/* Sections Spacing - Μειωμένο padding για λιγότερο λευκό χώρο */
 .section-light {
     background-color: #f9f9f9;
-    padding: 80px 20px;
+    padding: 50px 20px;
 }
 
 .section-white {
     background-color: #ffffff;
-    padding: 80px 20px;
+    padding: 50px 20px;
 }
 
-/* Grid Layout */
+/* Grid Layout - Αυξημένο πλάτος για πιο "απλωμένο" look */
 .container-grid {
-    max-width: 1000px;
+    max-width: 1150px; 
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -550,7 +546,7 @@ footer {
     transform: scale(1.02);
 }
 
-/* Icon */
+/* Icon content (for older versions) */
 .icon-content {
     flex: 0.6;
     text-align: center;
@@ -561,8 +557,8 @@ footer {
     opacity: 0.2;
 }
 
-/* Buttons */
-.btn-gold-outline, .btn-dark, .btn-cta-big {
+/* Buttons General Styles */
+.btn-gold-outline, .btn-dark, .btn-cta-big, .btn-white-contrast {
     display: inline-block;
     text-decoration: none;
     font-weight: 600;
@@ -598,12 +594,12 @@ footer {
     transform: translateY(-2px);
 }
 
-/* CTA Section */
+/* CTA Section (Updated: Burgundy & Smaller) */
 .cta-section {
-    background-color: #b78a38;
+    background-color: #502c3e; /* Βουργουνδί χρώμα */
     color: white;
     text-align: center;
-    padding: 70px 20px;
+    padding: 40px 20px; /* Μειωμένο ύψος (ήταν 70px) */
 }
 .cta-section h2 {
     color: white;
@@ -613,13 +609,13 @@ footer {
 .cta-section h2::after { display: none; }
 .cta-section p {
     font-size: 1.2rem;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     opacity: 0.9;
 }
 
 .btn-cta-big {
     background-color: white;
-    color: #b78a38;
+    color: #502c3e; /* Γράμματα στο χρώμα του φόντου */
     border: 2px solid white;
     border-radius: 50px;
     padding: 16px 45px;
@@ -632,15 +628,33 @@ footer {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* PLUM PANEL (#502c3e) */
+/* =========================================
+   9. PLUM PANEL (#502c3e) & ANIMATION
+   ========================================= */
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .plum-panel {
     background-color: #502c3e;
     width: 100%;
-    padding: 60px;
+    padding: 40px 50px; /* Μειωμένο padding πάνω-κάτω για πιο στενό ύψος */
     border-radius: 8px;
-    box-shadow: 0 15px 40px rgba(80, 44, 62, 0.25);
+    box-shadow: 0 20px 50px rgba(80, 44, 62, 0.3);
     color: white;
     text-align: center;
+    /* Εφαρμογή του animation */
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0; /* Ξεκινάει αόρατο μέχρι να τρέξει το animation */
 }
 
 .text-content-centered h2 {
@@ -690,23 +704,12 @@ footer {
     margin-right: 8px;
 }
 
-/* WHITE CONTRAST BUTTON */
+/* WHITE CONTRAST BUTTON FOR PLUM PANEL */
 .btn-white-contrast {
-    display: inline-block;
     background-color: #ffffff !important;
     color: #502c3e !important;
-    padding: 16px 40px;
-    margin-top: 20px;
-    font-size: 1rem;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 4px;
     border: 2px solid #ffffff;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
 }
 
 .btn-white-contrast:hover {
@@ -716,7 +719,7 @@ footer {
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* Responsive Home */
+/* Responsive Home Styles */
 @media (max-width: 850px) {
     .container-grid {
         flex-direction: column;
@@ -736,16 +739,22 @@ footer {
     .icon-content {
         display: none;
     }
-    .btn-gold-outline, .btn-dark, .btn-white-contrast {
+    .btn-gold-outline, .btn-dark, .btn-white-contrast, .btn-cta-big {
         width: 100%;
         box-sizing: border-box;
         text-align: center;
     }
+    /* Ρυθμίσεις για το πανελ σε κινητά */
     .plum-panel {
-        padding: 40px 20px;
+        padding: 30px 20px;
     }
     .home-list-centered {
         flex-direction: column;
         gap: 15px;
+        margin-bottom: 30px;
+    }
+    /* Ρυθμίσεις spacing σε κινητά */
+    .section-light, .section-white {
+        padding: 40px 20px;
     }
 }
