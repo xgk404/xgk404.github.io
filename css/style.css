@@ -450,6 +450,19 @@ footer {
   background: #333;
   color: #bbb;
   margin-top: auto;
+
+  /* Στυλ για τα links (τηλέφωνα, email) */
+.footer-links a,
+.footer-links a:visited,
+.footer-links a:active {
+    color: #ecf0f1; /* Σταθερό λευκό χρώμα */
+    text-decoration: none; /* Χωρίς υπογράμμιση */
+}
+
+.footer-links a:hover {
+    color: #b78a38; /* Γίνονται χρυσά ΜΟΝΟ στο hover */
+    text-decoration: none;
+}
 }
 
 /* MOBILE */
