@@ -74,12 +74,35 @@ body {
     }
 
     /* Εμφανίζουμε το κουμπί με τις 3 γραμμές */
+    /* =========================================
+   FIX ΓΙΑ ΝΑ ΦΑΝΟΥΝ ΟΙ ΓΡΑΜΜΕΣ (HAMBURGER)
+   ========================================= */
+
+@media (max-width: 900px) {
+    
+    /* 1. Δίνουμε σχήμα στο κουμπί που περιέχει τις γραμμές */
     .hamburger {
-        display: block; 
+        display: flex !important; /* Να φαίνεται σίγουρα */
+        flex-direction: column;   /* Η μία κάτω απ' την άλλη */
+        justify-content: center;
+        width: 35px;              /* Πλάτος κουμπιού */
+        height: 30px;             /* Ύψος κουμπιού */
         cursor: pointer;
-        font-size: 1.8rem;
-        color: white;
+        border: 1px solid rgba(255,255,255,0.2); /* Προαιρετικό: αχνό περίγραμμα για να βλέπεις πού είναι */
+        padding: 5px;
+        border-radius: 4px;
     }
+
+    /* 2. Στυλ για την κάθε γραμμή ξεχωριστά */
+    .bar {
+        display: block;
+        width: 100%;              /* Να πιάνει όλο το πλάτος του κουμπιού */
+        height: 2px;              /* <--- ΤΟ ΠΑΧΟΣ (2px = λεπτό) */
+        background-color: #ffffff !important; /* ΛΕΥΚΟ ΧΡΩΜΑ */
+        margin: 3px 0;            /* Κενό ανάμεσα στις γραμμές */
+        border-radius: 10px;      /* Στρογγυλεμένες άκρες */
+    }
+}
 
     /* Κρύβουμε το μενού αρχικά */
     .navbar ul {
