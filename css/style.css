@@ -290,17 +290,76 @@ h2::after {
 }
 
 /* COUNTERS SECTION (Blue Bar) */
+/* =========================================
+   COUNTERS ΜΕ ΛΕΥΚΑ ΤΕΤΡΑΓΩΝΑ (CARDS)
+   ========================================= */
+
 .blue-panel {
-    background: #2c3e50; /* Σκούρο μπλε */
-    color: white;
-    padding: 60px 0;
+    background: #2c3e50; /* Σκούρο μπλε φόντο */
+    padding: 80px 0;     /* Λίγο περισσότερος χώρος πάνω-κάτω */
     text-align: center;
 }
+
 .counter-wrapper {
     display: flex;
     justify-content: center;
-    gap: 80px;
+    gap: 40px;          /* Απόσταση μεταξύ των τετραγώνων */
     flex-wrap: wrap;
+}
+
+/* Το Λευκό Τετράγωνο Κουτί */
+.counter-box {
+    background-color: #ffffff;
+    width: 260px;       /* Σταθερό πλάτος για να είναι τετραγωνισμένο */
+    padding: 40px 20px;
+    border-radius: 4px; /* Ελαφρώς στρογγυλεμένες γωνίες */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Σκιά για να ξεχωρίζει από το μπλε */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+/* Εφέ όταν περνάει το ποντίκι πάνω από το τετράγωνο */
+.counter-box:hover {
+    transform: translateY(-10px); /* Σηκώνεται λίγο */
+}
+
+/* Το Εικονίδιο (Απλό, Μεγάλο, Χρυσό) */
+.counter-icon-simple {
+    font-size: 3.5rem;  /* Μεγάλο μέγεθος */
+    color: #b78a38;     /* Χρυσό χρώμα */
+    margin-bottom: 20px;
+}
+
+/* Ο Αριθμός */
+.count {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #2c3e50;     /* Μπλε σκούρο (για να φαίνεται στο λευκό) */
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+/* Το κείμενο (π.χ. Χρόνια Εμπειρίας) */
+.counter-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;        /* Γκρι */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive για κινητά */
+@media (max-width: 600px) {
+    .counter-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .counter-box {
+        width: 80%; /* Πιο πλατύ στα κινητά */
+    }
 }
 
 /* =========================================
