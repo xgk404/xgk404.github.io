@@ -893,71 +893,34 @@ footer {
     }
 }
 
+
 /* =========================================
-   MOBILE RESPONSIVE (ΓΙΑ ΤΟ ΥΠΟΛΟΙΠΟ SITE)
+   MOBILE RESPONSIVE (ΚΙΝΗΤΑ)
    ========================================= */
 
 @media (max-width: 900px) {
-    /* ΔΕΝ ΠΕΙΡΑΖΟΥΜΕ ΤΟ NAVBAR ΕΔΩ */
-
-    /* Hero Section */
-    .hero { height: 60vh; }
-    .hero h1 { font-size: 2rem; }
-    .hero p { padding: 0 20px; }
-
-    /* Γενική Διάταξη */
-    .container-grid {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-    .reverse-mobile { flex-direction: column; }
-    
-    /* Εικόνα Βιογραφικού */
-    .home-profile-img {
-        width: 180px;
-        height: 180px;
-        margin-bottom: 20px;
-    }
-    .text-content h2::after { margin: 15px auto; }
-
-    /* Counters & Panel */
-    .counter-wrapper { flex-direction: column; align-items: center; }
-    .counter-box { width: 100%; max-width: 300px; }
-    
-    .plum-panel { padding: 30px 20px; }
-    .plum-panel h2 { font-size: 1.5rem; }
-
-    /* Κουμπιά */
-    .btn-cta, .btn-dark, .btn-cta-big {
-        width: 100%;
-        box-sizing: border-box;
-        display: block;
-        margin-bottom: 10px;
-    }
-}
-
-/* --- ΡΥΘΜΙΣΕΙΣ ΓΙΑ ΚΙΝΗΤΑ (MOBILE) --- */
-@media (max-width: 900px) {
     
     .navbar {
-        padding: 0 20px;
+        padding: 0 20px; /* Λίγο κενό αριστερά-δεξιά */
     }
 
-    /* ΚΟΥΜΠΙ HAMBURGER (ΚΛΑΣΙΚΟ) */
+    /* ΤΟ ΚΟΥΜΠΙ ΤΟΥ ΜΕΝΟΥ */
     .hamburger {
-        display: block;      /* Εμφάνιση */
+        display: block;
         cursor: pointer;
-        font-size: 1.8rem;   /* Μέγεθος εικονιδίου */
-        color: white;        /* Λευκό χρώμα */
-        background: transparent;
-        border: none;        /* ΟΧΙ ΠΛΑΙΣΙΟ (για να μην βλέπεις τετράγωνο) */
-        padding: 5px;
+        font-size: 2rem;             /* Μέγεθος εικονιδίου */
+        
+        color: #b78a38 !important;   /* <--- ΧΡΥΣΟ ΧΡΩΜΑ ΓΡΑΜΜΩΝ */
+        background: transparent;     /* ΔΙΑΦΑΝΟ ΦΟΝΤΟ */
+        border: none !important;     /* <--- ΟΧΙ ΚΟΥΤΙ/ΠΕΡΙΓΡΑΜΜΑ */
+        outline: none;               /* Όχι περίγραμμα όταν το πατάς */
+        
+        padding: 5px;                /* Λίγο χώρο για να πατιέται εύκολα */
     }
 
-    /* ΜΕΝΟΥ (ΑΡΧΙΚΑ ΚΡΥΦΟ) */
+    /* ΤΟ ΜΕΝΟΥ (ΑΡΧΙΚΑ ΚΡΥΦΟ) */
     .navbar ul {
-        display: none;       /* Κρυφό */
+        display: none;               /* ΚΡΥΦΟ */
         flex-direction: column;
         width: 100%;
         position: absolute;
@@ -970,12 +933,24 @@ footer {
         box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     }
 
+    /* Εμφανίζεται ΜΟΝΟ όταν πατηθεί */
     .navbar ul.show {
-        display: flex;       /* Εμφάνιση όταν πατηθεί */
+        display: flex;
     }
 
     .navbar ul li {
         margin: 15px 0;
     }
+
+    /* ΥΠΟΛΟΙΠΕΣ ΡΥΘΜΙΣΕΙΣ ΓΙΑ ΚΙΝΗΤΑ (Hero, Counters, κλπ) */
+    .hero { height: 60vh; }
+    .hero h1 { font-size: 2rem; }
+    .container-grid { flex-direction: column; text-align: center; gap: 30px; }
+    .reverse-mobile { flex-direction: column; }
+    .home-profile-img { width: 180px; height: 180px; margin-bottom: 20px; }
+    .counter-wrapper { flex-direction: column; align-items: center; }
+    .counter-box { width: 100%; max-width: 300px; }
+    .plum-panel { padding: 30px 20px; }
+    .btn-cta, .btn-dark, .btn-cta-big { width: 100%; box-sizing: border-box; display: block; margin-bottom: 10px; }
 }
 
