@@ -941,22 +941,30 @@ footer {
    ΝΕΟ ΣΤΥΛ ΓΙΑ ΛΕΠΤΕΣ ΓΡΑΜΜΕΣ (HAMBURGER)
    ========================================= */
 @media (max-width: 900px) {
+    
     .hamburger {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        
+        width: 40px;
+        height: 40px;
         cursor: pointer;
-        padding: 5px; /* Λίγος χώρος για να πατιέται εύκολα */
+        padding: 5px;
+        
+        /* Λευκό περίγραμμα για να βλέπουμε το κουτί */
+        border: 2px solid white; 
+        border-radius: 4px;
+        box-sizing: border-box; /* Σημαντικό για να μην ξεφεύγει το μέγεθος */
     }
 
-    /* Οι 3 γραμμούλες */
     .bar {
         display: block;
-        width: 25px;       /* Το μήκος της γραμμής */
-        height: 2px;       /* <--- ΤΟ ΠΑΧΟΣ (Κάντο 1px αν θες πολύ λεπτό) */
-        background-color: white;
-        margin: 6px auto;  /* Το κενό ανάμεσα στις γραμμές */
-        border-radius: 2px; /* Στρογγυλεμένες άκρες */
-        transition: all 0.3s;
+        width: 100%;       /* Γεμίζει το πλάτος του κουμπιού */
+        height: 3px;       /* Πάχος γραμμής */
+        background-color: white !important; /* ΑΝΑΓΚΑΣΤΙΚΑ ΛΕΥΚΟ */
+        border-radius: 2px;
     }
-    
 }
 
