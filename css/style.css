@@ -49,6 +49,123 @@ body {
     }
 }
 
+/* =========================================
+   ABOUT US PAGE - LAWYER PROFILE STYLES
+   ========================================= */
+
+.about-section {
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+/* Το βασικό wrapper που κρατάει την εικόνα και το πάνελ */
+.about-feature-block {
+    position: relative;
+    display: flex;
+    justify-content: flex-end; /* Σπρώχνει το μπλε κουτί δεξιά */
+    min-height: 500px; 
+    margin-top: 40px; /* Λίγος αέρας από τον τίτλο */
+}
+
+/* Το σκούρο μπλε πάνελ */
+.dark-panel {
+    background-color: #2c3e50; /* Το ίδιο μπλε που έχεις στο site */
+    color: #ffffff;
+    width: 75%; 
+    padding: 60px 60px 60px 180px; /* Μεγάλο padding αριστερά για την εικόνα */
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Στυλ κειμένου μέσα στο πάνελ */
+.dark-panel .intro-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.dark-panel h3 {
+    color: #ffffff; /* Λευκοί τίτλοι */
+    border-bottom: 2px solid #b78a38; /* Η χρυσή γραμμή που χρησιμοποιείς αλλού */
+    padding-bottom: 10px;
+    margin-top: 30px;
+    display: inline-block; /* Για να μην πιάνει όλο το πλάτος η γραμμή */
+}
+
+.dark-panel ul {
+    list-style: none; /* Αφαιρούμε τις τελείες για πιο καθαρό look */
+    padding: 0;
+}
+
+.dark-panel ul li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Προσθήκη μικρής χρυσής τελείας (bullet) πριν από κάθε λίστα */
+.dark-panel ul li::before {
+    content: "•";
+    color: #b78a38;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Το wrapper της εικόνας */
+.lawyer-image-container {
+    position: absolute;
+    top: -40px; /* Ανεβαίνει πιο ψηλά από το κουτί */
+    left: 0;
+    width: 35%;
+    max-width: 400px;
+    height: auto;
+    z-index: 10;
+}
+
+.lawyer-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    object-fit: cover;
+}
+
+/* --- Responsive Design για το About Section (Tablet & Mobile) --- */
+/* Χρησιμοποιούμε 950px για να αλλάξει η διάταξη πριν χαλάσει το σχέδιο */
+@media (max-width: 950px) {
+    .about-feature-block {
+        display: block; 
+        margin-top: 20px;
+        min-height: auto;
+    }
+
+    .lawyer-image-container {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: -50px; /* Για να "καβαλήσει" λίγο το κουτί από κάτω */
+        padding: 0 20px;
+        box-sizing: border-box;
+        text-align: center; /* Κεντράρισμα */
+    }
+    
+    .lawyer-image-container img {
+        max-width: 400px; /* Να μην γίνει τεράστια στο κινητό */
+        margin: 0 auto;   /* Κεντράρισμα εικόνας */
+    }
+
+    .dark-panel {
+        width: 100%;
+        padding: 80px 30px 40px 30px; /* Περισσότερο χώρο πάνω */
+    }
+}
+
 .navbar ul {
   list-style: none;
   display: flex;
