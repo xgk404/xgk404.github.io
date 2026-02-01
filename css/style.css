@@ -1,19 +1,40 @@
-/* css/style.css */
+/* =========================================
+   1. GLOBAL STYLES & RESET
+   ========================================= */
 body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: #333;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+}
+
+/* Στυλ τίτλων για όλες τις σελίδες */
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #b78a38;
+    margin: 10px auto 0;
 }
 
 /* =========================================
-   ΤΕΛΙΚΟ NAVBAR & HAMBURGER MENU FIX
+   2. NAVBAR (MENU) - ΣΩΣΤΗ ΛΕΙΤΟΥΡΓΙΑ
    ========================================= */
-
-/* --- ΡΥΘΜΙΣΕΙΣ ΓΙΑ ΥΠΟΛΟΓΙΣΤΗ (DESKTOP) --- */
 .navbar {
     background: #2c3e50;
     padding: 0 5%;
@@ -38,10 +59,18 @@ body {
     width: auto;
 }
 
-/* Το μενού κανονικά οριζόντιο */
+/* Hamburger Button (Αρχικά Κρυμμένο σε PC) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: white;
+}
+
+/* Μενού Λίστας (PC) */
 .navbar ul {
     list-style: none;
-    display: flex; /* Εμφανές στον υπολογιστή */
+    display: flex;
     margin: 0;
     padding: 0;
 }
@@ -62,34 +91,24 @@ body {
     color: #b78a38;
 }
 
-/* Το Hamburger κρυμμένο στον υπολογιστή */
-.hamburger {
-    display: none; 
-}
-
-
-/* --- ΡΥΘΜΙΣΕΙΣ ΓΙΑ ΚΙΝΗΤΑ (MOBILE) --- */
+/* --- MOBILE MENU (Για οθόνες κάτω από 900px) --- */
 @media (max-width: 900px) {
-    
     .navbar {
-        padding: 0 20px; /* Λίγο κενό αριστερά-δεξιά */
+        padding: 0 20px; /* Λίγο αέρας στις άκρες */
     }
 
-    /* Εμφανίζουμε τις 3 γραμμές */
+    /* Εμφάνιση των 3 γραμμών */
     .hamburger {
         display: block;
-        cursor: pointer;
-        font-size: 1.8rem;
-        color: white;
     }
 
-    /* ΚΡΥΒΟΥΜΕ ΤΟ ΜΕΝΟΥ ΑΡΧΙΚΑ */
+    /* Απόκρυψη του μενού */
     .navbar ul {
-        display: none; /* <--- ΑΥΤΟ ΕΙΝΑΙ ΤΟ ΚΛΕΙΔΙ */
+        display: none; /* ΚΡΥΦΟ */
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 80px; /* Ακριβώς κάτω από τη μπάρα */
+        top: 80px; /* Κάτω από τη μπάρα */
         left: 0;
         background-color: #2c3e50;
         text-align: center;
@@ -98,7 +117,7 @@ body {
         border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* ΤΟ ΕΜΦΑΝΙΖΟΥΜΕ ΜΟΝΟ ΟΤΑΝ ΕΧΕΙ ΤΗΝ ΚΛΑΣΗ 'SHOW' */
+    /* Εμφάνιση ΜΟΝΟ όταν πατηθεί το κουμπί (μέσω JS) */
     .navbar ul.show {
         display: flex;
     }
@@ -107,282 +126,143 @@ body {
         margin: 15px 0;
     }
 }
-/* LOGO STYLES */
-
-/* Ρυθμίζει το link του λογοτύπου */
-.logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none; /* Βγάζει την υπογράμμιση */
-}
-
-/* Ρυθμίζει την εικόνα */
-.logo-img {
-    height: 70px; /* <-- Το κάναμε 90px για να είναι πιο μεγάλο */
-    width: auto;
-    object-fit: contain;
-    /* Προαιρετικά: Αν θες να έχει λίγο "αέρα" γύρω του */
-    padding: 5px 0;
-}
-
-/* Αν θέλεις να μικραίνει λίγο σε κινητά */
-@media (max-width: 768px) {
-    .logo-img {
-        height: 45px;
-    }
-}
 
 /* =========================================
-   ABOUT US PAGE - LAWYER PROFILE STYLES
+   3. HERO SECTION
    ========================================= */
-
-.about-section {
-    padding-top: 40px;
-    padding-bottom: 80px;
-}
-
-/* Το βασικό wrapper που κρατάει την εικόνα και το πάνελ */
-.about-feature-block {
-    position: relative;
-    display: flex;
-    justify-content: flex-end; /* Σπρώχνει το μπλε κουτί δεξιά */
-    min-height: 500px; 
-    margin-top: 40px; /* Λίγος αέρας από τον τίτλο */
-}
-
-/* Το σκούρο μπλε πάνελ */
-.dark-panel {
-    background-color: #2c3e50; /* Το ίδιο μπλε που έχεις στο site */
-    color: #ffffff;
-    width: 75%; 
-    padding: 60px 60px 60px 180px; /* Μεγάλο padding αριστερά για την εικόνα */
-    box-sizing: border-box;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Στυλ κειμένου μέσα στο πάνελ */
-.dark-panel .intro-text {
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.dark-panel h3 {
-    color: #ffffff; /* Λευκοί τίτλοι */
-    border-bottom: 2px solid #b78a38; /* Η χρυσή γραμμή που χρησιμοποιείς αλλού */
-    padding-bottom: 10px;
-    margin-top: 30px;
-    display: inline-block; /* Για να μην πιάνει όλο το πλάτος η γραμμή */
-}
-
-.dark-panel ul {
-    list-style: none; /* Αφαιρούμε τις τελείες για πιο καθαρό look */
-    padding: 0;
-}
-
-.dark-panel ul li {
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 20px;
-}
-
-/* Προσθήκη μικρής χρυσής τελείας (bullet) πριν από κάθε λίστα */
-.dark-panel ul li::before {
-    content: "•";
-    color: #b78a38;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-}
-
-/* Το wrapper της εικόνας */
-.lawyer-image-container {
-    position: absolute;
-    top: -40px; /* Ανεβαίνει πιο ψηλά από το κουτί */
-    left: 0;
-    width: 35%;
-    max-width: 400px;
-    height: auto;
-    z-index: 10;
-}
-
-.lawyer-image-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-    object-fit: cover;
-}
-
-/* --- Responsive Design για το About Section (Tablet & Mobile) --- */
-/* Χρησιμοποιούμε 950px για να αλλάξει η διάταξη πριν χαλάσει το σχέδιο */
-@media (max-width: 950px) {
-    .about-feature-block {
-        display: block; 
-        margin-top: 20px;
-        min-height: auto;
-    }
-
-    .lawyer-image-container {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: 100%;
-        max-width: 100%;
-        margin-bottom: -50px; /* Για να "καβαλήσει" λίγο το κουτί από κάτω */
-        padding: 0 20px;
-        box-sizing: border-box;
-        text-align: center; /* Κεντράρισμα */
-    }
-    
-    .lawyer-image-container img {
-        max-width: 400px; /* Να μην γίνει τεράστια στο κινητό */
-        margin: 0 auto;   /* Κεντράρισμα εικόνας */
-    }
-
-    .dark-panel {
-        width: 100%;
-        padding: 80px 30px 40px 30px; /* Περισσότερο χώρο πάνω */
-    }
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar ul li {
-  margin-left: 20px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #ecf0f1; /* <-- ΑΛΛΑΓΗ: Σχεδόν λευκό χρώμα για να διαβάζεται */
-  font-weight: 500;
-  transition: color 0.3s;
-  font-size: 1.1rem; /* Λίγο πιο μεγάλα γράμματα */
-}
-
-/* Το χρώμα όταν περνάει το ποντίκι από πάνω μένει το ίδιο (χρυσό) */
-.navbar ul li a:hover,
-.navbar ul li a.active {
-  color: #b78a38; /* Χρυσό */
-}
-
-.navbar ul li a:hover,
-.navbar ul li a.active {
-  color: #b78a38; /* Χρυσό χρώμα για έμφαση */
-}
-
-/* HERO SECTION */
 .hero {
-  background: url("../img/hero.jpg") center/cover no-repeat;
-  height: 80vh; /* Λίγο πιο κοντό από 100vh για να φαίνεται ότι υπάρχει και κάτω content */
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  position: relative;
+    background: url("../img/hero.jpg") center/cover no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
 }
 
 .hero-content {
-  position: relative;
-  z-index: 1;
-  padding: 20px;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
 .btn-cta {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 25px;
-  background: #b78a38;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.3s;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #b78a38;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
 }
-.btn-cta:hover {
-  background: #96702b;
-}
+.btn-cta:hover { background: #96702b; }
 
-/* GENERAL SECTIONS */
-.container {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 0 20px;
-  flex: 1; /* Για να σπρώχνει το footer κάτω */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .hero { height: 60vh; }
 }
-
-h2 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 40px;
-  position: relative;
-}
-h2::after {
-  content: "";
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: #b78a38;
-  margin: 10px auto 0;
-}
-
-/* CARDS / SERVICES */
-.grid-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
-.card {
-  background: #f9f9f9;
-  padding: 30px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
-}
-.card:hover {
-  transform: translateY(-5px);
-}
-.card-icon {
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
-/* COUNTERS SECTION (Blue Bar) */
-/* =========================================
-   COUNTERS ΜΕ ΛΕΥΚΑ ΤΕΤΡΑΓΩΝΑ (CARDS)
-   ========================================= */
 
 /* =========================================
-   COUNTERS "GLASS EFFECT" (ΚΟΜΨΟ & ΔΙΑΚΡΙΤΙΚΟ)
+   4. GENERAL SECTIONS LAYOUT
    ========================================= */
+.section-white {
+    background-color: #ffffff;
+    padding: 50px 20px;
+}
 
+.container-grid {
+    max-width: 1150px; 
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.text-content { flex: 1; }
+
+.text-content h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: left; /* Αριστερά στην αρχική */
+}
+.text-content h2::after { margin-left: 0; }
+
+.text-content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.home-profile-img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: 5px solid white;
+    transition: transform 0.3s;
+}
+.home-profile-img:hover { transform: scale(1.02); }
+
+/* Κουμπιά */
+.btn-dark {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 30px;
+    background-color: #2c3e50;
+    color: white;
+    border: 2px solid #2c3e50;
+    transition: all 0.3s;
+}
+.btn-dark:hover {
+    background-color: #34495e;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .container-grid {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .reverse-mobile { flex-direction: column; }
+    .text-content h2 { text-align: center; }
+    .text-content h2::after { margin: 15px auto; }
+    .btn-dark { width: 100%; box-sizing: border-box; display: block; }
+}
+
+/* =========================================
+   5. COUNTERS (GLASS EFFECT & SQUARES)
+   ========================================= */
 .blue-panel {
-    background: #2c3e50; /* Σκούρο μπλε φόντο */
+    background: #2c3e50;
     padding: 80px 0;
     text-align: center;
 }
@@ -394,16 +274,12 @@ h2::after {
     flex-wrap: wrap;
 }
 
-/* Το Κουτί (Τώρα είναι ημιδιάφανο "Glass") */
 .counter-box {
-    background-color: rgba(255, 255, 255, 0.05); /* 5% λευκό, σχεδόν διάφανο */
+    background-color: rgba(255, 255, 255, 0.05); /* Glass Effect */
     width: 260px;
     padding: 40px 20px;
     border-radius: 4px;
-    
-    /* Λεπτό περίγραμμα για να ξεχωρίζει διακριτικά */
-    border: 1px solid rgba(255, 255, 255, 0.1); 
-    
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -411,405 +287,83 @@ h2::after {
     transition: all 0.3s ease;
 }
 
-/* Εφέ όταν περνάει το ποντίκι */
 .counter-box:hover {
     transform: translateY(-10px);
-    background-color: rgba(255, 255, 255, 0.1); /* Γίνεται λίγο πιο φωτεινό */
-    border-color: #b78a38; /* Το περίγραμμα γίνεται χρυσό */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #b78a38;
 }
 
-/* Το Εικονίδιο */
 .counter-icon-simple {
     font-size: 3.5rem;
-    color: #b78a38;     /* Χρυσό */
+    color: #b78a38;
     margin-bottom: 20px;
 }
 
-/* Ο Αριθμός (Τώρα Λευκός) */
 .count {
     font-size: 3.5rem;
     font-weight: 800;
-    color: #ffffff;     /* Λευκό για να φαίνεται στο σκούρο */
+    color: #ffffff;
     line-height: 1;
     margin-bottom: 10px;
 }
 
-/* Το κείμενο (Τώρα Αχνό Λευκό/Γκρι) */
 .counter-label {
     font-size: 1.1rem;
     font-weight: 500;
-    color: #bdc3c7;     /* Ανοιχτό γκρι */
+    color: #bdc3c7;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
-    .counter-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-    .counter-box {
-        width: 80%;
-    }
+    .counter-wrapper { flex-direction: column; align-items: center; }
+    .counter-box { width: 80%; }
 }
 
 /* =========================================
-   CONTACT PAGE - BIGGER DARK PANEL (LINES STYLE)
+   6. CLICKABLE PLUM PANEL (ΔΙΑΜΕΣΟΛΑΒΗΣΗ)
    ========================================= */
-
-.contact-section {
-    padding-bottom: 80px;
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.contact-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 60px; /* Μεγάλο κενό ανάμεσα στα δύο μέρη */
-    justify-content: space-between;
-    align-items: flex-start; /* Ευθυγράμμιση στην κορυφή */
-}
-
-/* --- ΑΡΙΣΤΕΡΑ: Πληροφορίες --- */
-.contact-info-side {
-    flex: 1; /* Πιάνει το 1/3 του πλάτους */
-    min-width: 250px;
-    padding-top: 10px; /* Μικρο-διόρθωση για να κάτσει ίσια με τον τίτλο της φόρμας */
-}
-
-.contact-details p {
-    margin-bottom: 25px; /* Αραιά γραμμένο κείμενο για να φαίνεται ωραίο */
-    font-size: 1.1rem;
-    color: #333;
-    border-left: 3px solid #b78a38; /* Μια διακριτική χρυσή γραμμή αριστερά */
-    padding-left: 15px;
-}
-
-/* --- ΔΕΞΙΑ: Το Μεγάλο Μπλε Πάνελ --- */
-.form-panel.dark-panel-lined {
-    flex: 2; /* Πιάνει τα 2/3 του πλάτους (ΠΟΛΥ ΠΙΟ ΦΑΡΔΥ) */
-    min-width: 320px;
-    background-color: #2c3e50; /* Σκούρο μπλε */
-    padding: 60px; /* Πολύ padding για να δείχνει "αρχοντικό" */
-    border-radius: 6px;
-    color: white;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25); /* Έντονη σκιά */
-}
-
-.form-panel h3 {
-    color: #ffffff;
-    border-bottom: 2px solid #b78a38;
-    padding-bottom: 15px;
-    margin-top: 0;
-    margin-bottom: 40px;
-    font-size: 1.6rem;
-}
-
-.form-group {
-    margin-bottom: 30px; /* Αέρας ανάμεσα στα πεδία */
-}
-
-/* Ετικέτες */
-.dark-panel-lined label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
-    color: #bdc3c7; /* Ανοιχτό γκρι */
-    font-size: 0.9rem;
-    text-transform: uppercase; /* Κεφαλαία γράμματα για στυλ */
-    letter-spacing: 1px;
-}
-
-/* --- ΠΕΔΙΑ ΤΥΠΟΥ "ΓΡΑΜΜΕΣ" --- */
-
-/* Input (απλή γραμμή κάτω) */
-.lined-input-dark {
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Αχνή γραμμή */
-    padding: 10px 0;
-    font-family: inherit;
-    font-size: 1.2rem; /* Μεγάλα γράμματα */
-    color: #ffffff;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.lined-input-dark:focus {
-    border-bottom: 2px solid #b78a38; /* Χρυσή όταν γράφεις */
-}
-
-/* Textarea (γραμμές τετραδίου) */
-.lined-textarea-dark {
-    width: 100%;
-    background: transparent;
-    border: none;
-    /* Γραμμές φόντου */
-    background-image: linear-gradient(transparent 39px, rgba(255, 255, 255, 0.3) 40px);
-    background-size: 100% 40px;
-    line-height: 40px;
-    
-    padding: 0;
-    font-family: inherit;
-    font-size: 1.2rem;
-    color: #ffffff;
-    outline: none;
-    resize: vertical;
-}
-
-/* --- ΚΟΥΜΠΙ --- */
-.btn-submit-gold {
-    display: inline-block;
-    background-color: #b78a38;
-    color: white;
-    border: none;
-    padding: 15px 40px; /* Μεγάλο κουμπί */
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.3s;
-    letter-spacing: 1px;
-}
-
-.btn-submit-gold:hover {
-    background-color: #ffffff;
-    color: #2c3e50;
-    transform: translateY(-2px);
-}
-
-/* Mobile: Στο κινητό μπαίνουν το ένα κάτω από το άλλο */
-@media (max-width: 900px) {
-    .contact-wrapper {
-        flex-direction: column;
-    }
-    .contact-info-side, 
-    .form-panel.dark-panel-lined {
-        flex: auto;
-        width: 100%; /* Πιάνουν όλο το πλάτος */
-    }
-    .form-panel.dark-panel-lined {
-        padding: 30px; /* Λιγότερο padding στο κινητό */
-    }
-}
-/* FOOTER */
-footer {
-  text-align: center;
-  font-size: 14px;
-  padding: 20px;
-  background: #333;
-  color: #bbb;
-  margin-top: auto;
-} /* <--- ΕΔΩ ΕΛΕΙΠΕ Η ΑΓΚΥΛΗ ΠΟΥ ΚΛΕΙΝΕΙ ΤΟ FOOTER */
-
-/* Στυλ για τα links (τηλέφωνα, email) */
-.footer-links a,
-.footer-links a:visited,
-.footer-links a:active {
-    color: #ecf0f1; /* Σταθερό λευκό χρώμα */
-    text-decoration: none; /* Χωρίς υπογράμμιση */
-}
-
-.footer-links a:hover {
-    color: #b78a38; /* Γίνονται χρυσά ΜΟΝΟ στο hover */
-    text-decoration: none;
-}
-/* MOBILE */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .navbar { flex-direction: column; }
-  .navbar ul { margin-top: 15px; }
-}
-
-/* =========================================
-   HOMEPAGE NEW SECTIONS (ΔΙΟΡΘΩΜΕΝΟ)
-   ========================================= */
-
-/* Γενικές κλάσεις για sections */
-.section-light {
-    background-color: #f9f9f9;
-    padding: 80px 20px;
-}
-
-.section-white {
-    background-color: #ffffff;
-    padding: 80px 20px;
-}
-
-/* Grid Layout */
-.container-grid {
-    max-width: 1000px; /* Λίγο πιο στενό για να διαβάζεται καλύτερα */
-    margin: 0 auto;
-    display: flex;
-    align-items: center; /* Κεντράρισμα στον κάθετο άξονα */
-    justify-content: space-between;
-    gap: 50px;
-}
-
-.text-content {
-    flex: 1;
-}
-
-.text-content h2 {
-    color: #2c3e50;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    position: relative;
-    line-height: 1.3;
-}
-
-/* Η μικρή χρυσή γραμμή κάτω από τους τίτλους */
-.text-content h2::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: #b78a38;
-    margin-top: 15px;
-}
-
-.text-content p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 25px;
-    line-height: 1.8; /* Πιο άνετο διάβασμα */
-}
-
-/* Λίστα με bullets */
-.home-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 35px; /* Περισσότερος αέρας πριν το κουμπί */
-}
-
-.home-list li {
-    margin-bottom: 12px;
-    font-size: 1.1rem;
-    color: #333;
-    display: flex; /* Για σωστή στοίχιση του εικονιδίου */
-    align-items: center;
-}
-
-.home-list li i {
-    color: #b78a38;
-    margin-right: 15px;
-    font-size: 0.9em;
-}
-
-/* --- ΦΩΤΟΓΡΑΦΙΑ (ΔΙΟΡΘΩΣΗ ΜΕΓΕΘΟΥΣ) --- */
-.image-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.home-profile-img {
-    width: 220px;  /* <--- ΤΟ ΜΙΚΡΥΝΑΜΕ (ήταν 300px) */
-    height: 220px; /* <--- ΤΟ ΜΙΚΡΥΝΑΜΕ */
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Πιο απαλή σκιά */
-    border: 5px solid white;
-    transition: transform 0.3s;
-}
-
-.home-profile-img:hover {
-    transform: scale(1.02); /* Ελαφριά κίνηση όταν πας το ποντίκι */
-}
-
-/* Το εικονίδιο της Διαμεσολάβησης */
-.icon-content {
-    flex: 0.6; /* Λίγο μικρότερο χώρο για το εικονίδιο */
-    text-align: center;
-}
-
-.icon-content i {
-    font-size: 120px; /* Μεγάλο εικονίδιο */
-    color: #b78a38;
-    opacity: 0.2; /* Πολύ αχνό για να είναι διακριτικό */
-}
-
-/* --- ΚΟΥΜΠΙΑ (ΒΕΛΤΙΩΣΗ ΕΜΦΑΝΙΣΗΣ) --- */
-
-/* --- ΟΛΟΚΛΗΡΩΣΗ ΚΟΥΜΠΙΩΝ (που ήταν κομμένα) --- */
-.btn-gold-outline, .btn-dark, .btn-cta-big, .btn-white-contrast {
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-    padding: 14px 30px;
-    cursor: pointer;
-}
-
-/* Στυλ για το κουμπί Bio */
-.btn-dark {
-    background-color: #2c3e50;
-    color: white;
-    border: 2px solid #2c3e50;
-}
-.btn-dark:hover {
-    background-color: #34495e;
-    border-color: #34495e;
-    transform: translateY(-2px);
-}
-
-/* =========================================
-   STYLES ΓΙΑ ΤΟ ΒΟΥΡΓΟΥΝΔΙ ΠΑΝΕΛ (#502c3e)
-   ========================================= */
-
-/* =========================================
-   STYLES ΓΙΑ CLICKABLE PLUM PANEL
-   ========================================= */
-
-/* Ρύθμιση για το Link που τυλίγει το πάνελ */
 .panel-link-wrapper {
-    text-decoration: none; /* Όχι υπογράμμιση */
-    display: block; /* Να πιάνει όλο τον χώρο */
+    text-decoration: none;
+    display: block;
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
 }
 
 .plum-panel {
-    background-color: #502c3e; /* Βουργουνδί */
+    background-color: #502c3e;
     width: 100%;
-    padding: 60px 40px; /* Τετραγωνισμένη αίσθηση */
-    border-radius: 4px; /* Λιγότερο στρογγυλεμένες γωνίες */
-    box-shadow: 0 10px 30px rgba(80, 44, 62, 0.2); /* Αρχική σκιά */
+    padding: 50px 30px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(80, 44, 62, 0.2);
     color: white;
     text-align: center;
     box-sizing: border-box;
-    
-    /* Εφέ κίνησης */
-    transition: all 0.4s ease; 
-    cursor: pointer; /* Χεράκι στο ποντίκι */
-    
-    /* Animation εμφάνισης */
+    transition: all 0.4s ease;
+    cursor: pointer;
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
 }
 
-/* --- ΤΟ ΕΦΕ ΟΤΑΝ ΠΕΡΝΑΕΙ ΤΟ ΠΟΝΤΙΚΙ (HOVER) --- */
 .panel-link-wrapper:hover .plum-panel {
-    transform: translateY(-10px); /* Σηκώνεται προς τα πάνω */
-    /* Έντονη σκιά γύρω γύρω */
-    box-shadow: 0 20px 60px rgba(80, 44, 62, 0.7), 0 0 20px rgba(183, 138, 56, 0.4); 
-    background-color: #5e3449; /* Ελαφρώς πιο φωτεινό χρώμα */
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(80, 44, 62, 0.7), 0 0 20px rgba(183, 138, 56, 0.4);
+    background-color: #5e3449;
 }
 
-/* Τίτλος */
 .plum-panel h2 {
     color: #ffffff !important;
     border-bottom: none;
     display: inline-block;
     margin-bottom: 20px;
     position: relative;
+    font-size: 2rem;
 }
 
 .plum-panel h2::after {
@@ -819,13 +373,10 @@ footer {
     height: 3px;
     background: #b78a38;
     margin: 10px auto 0;
-    transition: width 0.3s; /* Εφέ στη γραμμή */
+    transition: width 0.3s;
 }
 
-/* Όταν περνάς το ποντίκι, μεγαλώνει η γραμμή του τίτλου */
-.panel-link-wrapper:hover .plum-panel h2::after {
-    width: 100px;
-}
+.panel-link-wrapper:hover .plum-panel h2::after { width: 100px; }
 
 .plum-panel p {
     color: #ecf0f1;
@@ -834,10 +385,9 @@ footer {
     line-height: 1.8;
 }
 
-/* Το κειμενάκι "Μάθετε περισσότερα" που αντικαθιστά το κουμπί */
 .fake-link-text {
     display: inline-block;
-    color: #b78a38; /* Χρυσό */
+    color: #b78a38;
     font-weight: bold;
     font-size: 1.1rem;
     text-transform: uppercase;
@@ -847,165 +397,113 @@ footer {
 }
 
 .panel-link-wrapper:hover .fake-link-text {
-    color: white; /* Γίνεται λευκό στο hover */
-    border-bottom: 1px solid white; /* Υπογράμμιση στο hover */
+    color: white;
+    border-bottom: 1px solid white;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-    .plum-panel {
-        padding: 40px 20px;
-    }
-}margin-bottom: 25px; /* Μικρότερο κενό πριν το κουμπί */
+    .plum-panel h2 { font-size: 1.5rem; }
+    .plum-panel { padding: 30px 20px; }
 }
 
 /* =========================================
-   ΝΕΟ: ΣΤΥΛ ΓΙΑ ΤΑ ΕΙΚΟΝΙΔΙΑ ΣΤΑ COUNTERS
+   7. FOOTER
    ========================================= */
-.counter-icon {
-    display: inline-flex;       /* Για να κεντραριστεί τέλεια στον κύκλο */
-    justify-content: center;
-    align-items: center;
-    
-    width: 100px;               /* Μεγάλος Κύκλος (πλάτος) */
-    height: 100px;              /* Μεγάλος Κύκλος (ύψος) */
-    border-radius: 50%;         /* Σχήμα κύκλου */
-    
-    background-color: rgba(183, 138, 56, 0.15); /* Αχνό χρυσό φόντο */
-    font-size: 3rem;            /* ΠΟΛΥ ΜΕΓΑΛΟ ΕΙΚΟΝΙΔΙΟ μέσα στον κύκλο */
-    color: #b78a38;             /* Χρυσό χρώμα */
-    
-    margin-bottom: 25px;        /* Απόσταση από το νούμερο */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Μοντέρνα, απαλή σκιά */
-    
-    transition: all 0.4s ease;  /* Για να γίνεται ομαλά η αλλαγή στο hover */
+footer {
+    text-align: center;
+    font-size: 14px;
+    padding: 20px;
+    background: #333;
+    color: #bbb;
+    margin-top: auto;
+    border-top: 4px solid #b78a38;
 }
 
-/* ΕΦΕ: Όταν πας το ποντίκι πάνω από το νούμερο/κουτί */
-.counter-item:hover .counter-icon {
-    background-color: #b78a38;  /* Ο κύκλος γεμίζει χρυσό */
-    color: #ffffff;             /* Το εικονίδιο γίνεται λευκό */
-    transform: translateY(-10px) scale(1.1); /* Ανεβαίνει λίγο και μεγαλώνει */
-    box-shadow: 0 15px 30px rgba(183, 138, 56, 0.4); /* Πιο έντονη λάμψη */
+.footer-content h4 {
+    margin: 0 0 5px;
+    font-size: 1.4rem;
+    color: #ffffff;
+    font-weight: 600;
 }
 
-/* Μικρή διόρθωση για το κείμενο των αριθμών */
-.count {
-    margin-bottom: 5px;
-    display: block;
+.role-title {
+    margin: 0 0 20px;
+    font-size: 0.95rem;
+    color: #b78a38;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-links { margin-bottom: 30px; }
+.footer-links a { color: #ecf0f1; text-decoration: none; }
+.footer-links a:hover { color: #b78a38; }
+
+.copyright {
+    font-size: 0.85rem;
+    color: #95a5a6;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    .footer-links span { display: block; margin-bottom: 5px; }
+    .separator { display: none; }
 }
 
 /* =========================================
-   ANIMATION KEYFRAMES (Αν δεν υπάρχουν ήδη)
+   8. ΕΙΔΙΚΑ STYLES ΓΙΑ ΤΙΣ ΑΛΛΕΣ ΣΕΛΙΔΕΣ
    ========================================= */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+
+/* ABOUT PAGE */
+.about-feature-block {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    min-height: 500px;
+    margin-top: 40px;
+}
+.lawyer-image-container {
+    position: absolute;
+    top: -40px; left: 0; width: 35%; max-width: 400px; z-index: 10;
+}
+.lawyer-image-container img { width: 100%; border-radius: 4px; box-shadow: 0 15px 35px rgba(0,0,0,0.25); }
+.dark-panel {
+    background-color: #2c3e50; color: #ffffff; width: 75%;
+    padding: 60px 60px 60px 180px; border-radius: 4px;
+}
+.dark-panel h3 { color: white; border-bottom: 2px solid #b78a38; display: inline-block; padding-bottom: 5px; }
+.dark-panel ul { list-style: none; padding: 0; }
+.dark-panel ul li::before { content: "•"; color: #b78a38; margin-right: 10px; }
+
+@media (max-width: 950px) {
+    .about-feature-block { display: block; min-height: auto; }
+    .lawyer-image-container { position: relative; width: 100%; padding: 0 20px; box-sizing: border-box; text-align: center; top: 0; margin-bottom: -50px; }
+    .dark-panel { width: 100%; padding: 80px 30px 40px 30px; }
 }
 
-/* =========================================
-   MOBILE RESPONSIVE FIXES (ΓΙΑ ΚΙΝΗΤΑ)
-   ========================================= */
+/* CONTACT PAGE */
+.contact-wrapper { display: flex; flex-wrap: wrap; gap: 60px; }
+.contact-info-side { flex: 1; min-width: 250px; }
+.contact-details p { border-left: 3px solid #b78a38; padding-left: 15px; }
+.form-panel.dark-panel-lined { flex: 2; background: #2c3e50; padding: 60px; border-radius: 6px; color: white; }
+.lined-input-dark, .lined-textarea-dark { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.3); color: white; padding: 10px 0; font-size: 1.1rem; }
+.btn-submit-gold { background: #b78a38; color: white; border: none; padding: 15px 40px; font-weight: bold; cursor: pointer; }
 
 @media (max-width: 900px) {
-
-    /* --- 1. NAVBAR ΔΙΟΡΘΩΣΗ --- */
-    .navbar {
-        height: auto; /* Αφήνουμε το ύψος ελεύθερο για να χωρέσει το μενού */
-        flex-direction: column; /* Το λογότυπο πάνω, το μενού από κάτω */
-        padding: 15px 0; /* Λίγο αέρας πάνω κάτω */
-    }
-
-    .logo-img {
-        height: 60px; /* Λίγο μικρότερο λογότυπο */
-        margin-bottom: 15px; /* Κενό ανάμεσα σε λογότυπο και μενού */
-    }
-
-    .navbar ul {
-        flex-wrap: wrap; /* Αν δεν χωράνε τα links, να πάνε από κάτω */
-        justify-content: center; /* Κεντραρισμένα */
-        margin-top: 0;
-    }
-
-    .navbar ul li {
-        margin: 5px 10px; /* Περισσότερος χώρος ανάμεσα στα links για να πατιούνται εύκολα */
-    }
-
-    /* --- 2. HERO SECTION (Μικρότερα γράμματα) --- */
-    .hero {
-        height: 60vh; /* Πιο κοντό Hero στο κινητό */
-    }
-
-    .hero h1 {
-        font-size: 2rem; /* Μικρότερος τίτλος */
-    }
-
-    .hero p {
-        font-size: 1rem;
-        padding: 0 20px; /* Να μην κολλάνε τα γράμματα στις άκρες */
-    }
-
-    /* --- 3. ΓΕΝΙΚΗ ΔΙΑΤΑΞΗ (ΣΤΟΙΒΑΓΜΑ) --- */
-    .container-grid {
-        flex-direction: column; /* Τα βάζει το ένα κάτω από το άλλο */
-        gap: 30px;
-        text-align: center; /* Κεντράρισμα κειμένου */
-    }
-
-    /* Στο βιογραφικό, η εικόνα να μένει πάνω */
-    .reverse-mobile {
-        flex-direction: column;
-    }
-
-    /* --- 4. ΒΙΟΓΡΑΦΙΚΟ --- */
-    .home-profile-img {
-        width: 180px; /* Πιο μικρή φώτο */
-        height: 180px;
-        margin-bottom: 20px;
-    }
-    
-    .text-content h2::after {
-        margin: 15px auto; /* Κεντράρισμα της χρυσής γραμμής */
-    }
-
-    /* --- 5. COUNTERS & PLUM PANEL --- */
-    .blue-panel, .section-white, .section-light {
-        padding: 50px 20px; /* Λιγότερο κενό (padding) πάνω-κάτω */
-    }
-
-    .counter-wrapper {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .counter-box {
-        width: 100%; /* Να πιάνει όλο το πλάτος στο κινητό */
-        max-width: 300px; /* Αλλά όχι τεράστιο */
-    }
-
-    .plum-panel {
-        padding: 30px 20px; /* Μικρότερο πάνελ */
-    }
-    
-    .plum-panel h2 {
-        font-size: 1.5rem; /* Μικρότερος τίτλος στο πάνελ */
-    }
-
-    /* --- 6. CTA & BUTTONS --- */
-    .btn-cta, .btn-dark, .btn-cta-big, .fake-link-text {
-        width: 100%; /* Κουμπιά σε όλο το πλάτος για εύκολο πάτημα */
-        box-sizing: border-box; /* Για να μην βγαίνουν έξω από την οθόνη */
-        display: block;
-        margin-bottom: 10px;
-    }
-    
-    .panel-link-wrapper {
-        width: 100%;
-    }
+    .contact-wrapper { flex-direction: column; }
+    .form-panel.dark-panel-lined { width: 100%; box-sizing: border-box; padding: 30px; }
 }
+
+/* MEDIATION GRID */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+.card {
+    background: #f9f9f9; padding: 30px; border-radius: 8px; text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s;
+}
+.card:hover { transform: translateY(-5px); }
+.card-icon { font-size: 40px; color: #b78a38; margin-bottom: 20px; }
