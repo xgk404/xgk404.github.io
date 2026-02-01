@@ -825,3 +825,104 @@ footer {
         transform: translateY(0);
     }
 }
+
+/* =========================================
+   MOBILE RESPONSIVE FIXES (ΓΙΑ ΚΙΝΗΤΑ)
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    /* --- 1. NAVBAR ΔΙΟΡΘΩΣΗ --- */
+    .navbar {
+        height: auto; /* Αφήνουμε το ύψος ελεύθερο για να χωρέσει το μενού */
+        flex-direction: column; /* Το λογότυπο πάνω, το μενού από κάτω */
+        padding: 15px 0; /* Λίγο αέρας πάνω κάτω */
+    }
+
+    .logo-img {
+        height: 60px; /* Λίγο μικρότερο λογότυπο */
+        margin-bottom: 15px; /* Κενό ανάμεσα σε λογότυπο και μενού */
+    }
+
+    .navbar ul {
+        flex-wrap: wrap; /* Αν δεν χωράνε τα links, να πάνε από κάτω */
+        justify-content: center; /* Κεντραρισμένα */
+        margin-top: 0;
+    }
+
+    .navbar ul li {
+        margin: 5px 10px; /* Περισσότερος χώρος ανάμεσα στα links για να πατιούνται εύκολα */
+    }
+
+    /* --- 2. HERO SECTION (Μικρότερα γράμματα) --- */
+    .hero {
+        height: 60vh; /* Πιο κοντό Hero στο κινητό */
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Μικρότερος τίτλος */
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 20px; /* Να μην κολλάνε τα γράμματα στις άκρες */
+    }
+
+    /* --- 3. ΓΕΝΙΚΗ ΔΙΑΤΑΞΗ (ΣΤΟΙΒΑΓΜΑ) --- */
+    .container-grid {
+        flex-direction: column; /* Τα βάζει το ένα κάτω από το άλλο */
+        gap: 30px;
+        text-align: center; /* Κεντράρισμα κειμένου */
+    }
+
+    /* Στο βιογραφικό, η εικόνα να μένει πάνω */
+    .reverse-mobile {
+        flex-direction: column;
+    }
+
+    /* --- 4. ΒΙΟΓΡΑΦΙΚΟ --- */
+    .home-profile-img {
+        width: 180px; /* Πιο μικρή φώτο */
+        height: 180px;
+        margin-bottom: 20px;
+    }
+    
+    .text-content h2::after {
+        margin: 15px auto; /* Κεντράρισμα της χρυσής γραμμής */
+    }
+
+    /* --- 5. COUNTERS & PLUM PANEL --- */
+    .blue-panel, .section-white, .section-light {
+        padding: 50px 20px; /* Λιγότερο κενό (padding) πάνω-κάτω */
+    }
+
+    .counter-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .counter-box {
+        width: 100%; /* Να πιάνει όλο το πλάτος στο κινητό */
+        max-width: 300px; /* Αλλά όχι τεράστιο */
+    }
+
+    .plum-panel {
+        padding: 30px 20px; /* Μικρότερο πάνελ */
+    }
+    
+    .plum-panel h2 {
+        font-size: 1.5rem; /* Μικρότερος τίτλος στο πάνελ */
+    }
+
+    /* --- 6. CTA & BUTTONS --- */
+    .btn-cta, .btn-dark, .btn-cta-big, .fake-link-text {
+        width: 100%; /* Κουμπιά σε όλο το πλάτος για εύκολο πάτημα */
+        box-sizing: border-box; /* Για να μην βγαίνουν έξω από την οθόνη */
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .panel-link-wrapper {
+        width: 100%;
+    }
+}
