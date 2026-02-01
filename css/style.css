@@ -581,11 +581,114 @@ footer {
 
 /* --- ΚΟΥΜΠΙΑ (ΒΕΛΤΙΩΣΗ ΕΜΦΑΝΙΣΗΣ) --- */
 
-/* Κοινό στυλ για όλα τα κουμπιά */
-.btn-gold-outline, .btn-dark, .btn-cta-big {
+/* --- ΟΛΟΚΛΗΡΩΣΗ ΚΟΥΜΠΙΩΝ (που ήταν κομμένα) --- */
+.btn-gold-outline, .btn-dark, .btn-cta-big, .btn-white-contrast {
     display: inline-block;
     text-decoration: none;
     font-weight: 600;
     border-radius: 4px;
     transition: all 0.3s ease;
-    text-transform
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    padding: 14px 30px;
+    cursor: pointer;
+}
+
+/* Στυλ για το κουμπί Bio */
+.btn-dark {
+    background-color: #2c3e50;
+    color: white;
+    border: 2px solid #2c3e50;
+}
+.btn-dark:hover {
+    background-color: #34495e;
+    border-color: #34495e;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   STYLES ΓΙΑ ΤΟ ΒΟΥΡΓΟΥΝΔΙ ΠΑΝΕΛ (#502c3e)
+   ========================================= */
+
+.plum-panel {
+    background-color: #502c3e; /* Το βουργουνδί χρώμα */
+    width: 100%;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(80, 44, 62, 0.25);
+    color: white; /* Όλα τα γράμματα λευκά */
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Ρυθμίσεις για τον τίτλο μέσα στο βουργουνδί πάνελ */
+.plum-panel h2 {
+    color: #ffffff !important; /* Αναγκαστικά λευκό */
+    border-bottom: none; /* Αφαιρούμε την προεπιλεγμένη γραμμή αν υπάρχει */
+    display: inline-block;
+}
+
+.plum-panel h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #b78a38; /* Χρυσή γραμμή */
+    margin: 10px auto 20px; /* Κεντράρισμα */
+}
+
+.plum-panel p {
+    color: #ecf0f1;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* Λίστα κεντραρισμένη */
+.home-list-centered {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.home-list-centered li {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.home-list-centered li i {
+    color: #b78a38;
+    margin-right: 8px;
+}
+
+/* Κουμπί Λευκό (Contrast) */
+.btn-white-contrast {
+    background-color: #ffffff;
+    color: #502c3e; /* Γράμματα στο χρώμα του φόντου */
+    border: 2px solid #ffffff;
+}
+
+.btn-white-contrast:hover {
+    background-color: transparent;
+    color: #ffffff; /* Γίνονται λευκά στο hover */
+}
+
+/* Responsive για κινητά */
+@media (max-width: 768px) {
+    .plum-panel {
+        padding: 30px 20px;
+    }
+    .home-list-centered {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .btn-white-contrast {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
