@@ -611,37 +611,100 @@ footer {
    STYLES ΓΙΑ ΤΟ ΒΟΥΡΓΟΥΝΔΙ ΠΑΝΕΛ (#502c3e)
    ========================================= */
 
-.plum-panel {
-    background-color: #502c3e;
+/* =========================================
+   STYLES ΓΙΑ CLICKABLE PLUM PANEL
+   ========================================= */
+
+/* Ρύθμιση για το Link που τυλίγει το πάνελ */
+.panel-link-wrapper {
+    text-decoration: none; /* Όχι υπογράμμιση */
+    display: block; /* Να πιάνει όλο τον χώρο */
     width: 100%;
-    max-width: 900px; /* Προσθέσαμε max-width για να μην απλώνει τεράστιο */
-    margin: 0 auto;   /* Κεντράρισμα */
-    
-    /* ΑΛΛΑΓΗ: Μειωμένο padding για να είναι πιο "μαζεμένο" */
-    padding: 40px 30px; 
-    
-    border-radius: 8px;
-    box-shadow: 0 15px 40px rgba(80, 44, 62, 0.25);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.plum-panel {
+    background-color: #502c3e; /* Βουργουνδί */
+    width: 100%;
+    padding: 60px 40px; /* Τετραγωνισμένη αίσθηση */
+    border-radius: 4px; /* Λιγότερο στρογγυλεμένες γωνίες */
+    box-shadow: 0 10px 30px rgba(80, 44, 62, 0.2); /* Αρχική σκιά */
     color: white;
     text-align: center;
+    box-sizing: border-box;
     
-    /* Animation */
+    /* Εφέ κίνησης */
+    transition: all 0.4s ease; 
+    cursor: pointer; /* Χεράκι στο ποντίκι */
+    
+    /* Animation εμφάνισης */
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
 }
 
-/* Τα υπόλοιπα για τον τίτλο και το κουμπί μένουν ίδια... */
+/* --- ΤΟ ΕΦΕ ΟΤΑΝ ΠΕΡΝΑΕΙ ΤΟ ΠΟΝΤΙΚΙ (HOVER) --- */
+.panel-link-wrapper:hover .plum-panel {
+    transform: translateY(-10px); /* Σηκώνεται προς τα πάνω */
+    /* Έντονη σκιά γύρω γύρω */
+    box-shadow: 0 20px 60px rgba(80, 44, 62, 0.7), 0 0 20px rgba(183, 138, 56, 0.4); 
+    background-color: #5e3449; /* Ελαφρώς πιο φωτεινό χρώμα */
+}
+
+/* Τίτλος */
 .plum-panel h2 {
     color: #ffffff !important;
     border-bottom: none;
     display: inline-block;
-    margin-bottom: 10px; /* Μικρότερο κενό */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.plum-panel h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #b78a38;
+    margin: 10px auto 0;
+    transition: width 0.3s; /* Εφέ στη γραμμή */
+}
+
+/* Όταν περνάς το ποντίκι, μεγαλώνει η γραμμή του τίτλου */
+.panel-link-wrapper:hover .plum-panel h2::after {
+    width: 100px;
 }
 
 .plum-panel p {
     color: #ecf0f1;
     font-size: 1.1rem;
-    margin-bottom: 25px; /* Μικρότερο κενό πριν το κουμπί */
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* Το κειμενάκι "Μάθετε περισσότερα" που αντικαθιστά το κουμπί */
+.fake-link-text {
+    display: inline-block;
+    color: #b78a38; /* Χρυσό */
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.panel-link-wrapper:hover .fake-link-text {
+    color: white; /* Γίνεται λευκό στο hover */
+    border-bottom: 1px solid white; /* Υπογράμμιση στο hover */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .plum-panel {
+        padding: 40px 20px;
+    }
+}margin-bottom: 25px; /* Μικρότερο κενό πριν το κουμπί */
 }
 
 /* =========================================
