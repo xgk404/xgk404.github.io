@@ -914,3 +914,26 @@ footer {
     }
 }
 
+/* =========================================
+   ΝΕΟ ΣΤΥΛ ΓΙΑ ΛΕΠΤΕΣ ΓΡΑΜΜΕΣ (HAMBURGER)
+   ========================================= */
+@media (max-width: 900px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        padding: 5px; /* Λίγος χώρος για να πατιέται εύκολα */
+    }
+
+    /* Οι 3 γραμμούλες */
+    .bar {
+        display: block;
+        width: 25px;       /* Το μήκος της γραμμής */
+        height: 2px;       /* <--- ΤΟ ΠΑΧΟΣ (Κάντο 1px αν θες πολύ λεπτό) */
+        background-color: white;
+        margin: 6px auto;  /* Το κενό ανάμεσα στις γραμμές */
+        border-radius: 2px; /* Στρογγυλεμένες άκρες */
+        transition: all 0.3s;
+    }
+    
+}
+
