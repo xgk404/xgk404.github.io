@@ -711,10 +711,36 @@ footer {
    ΝΕΟ: ΣΤΥΛ ΓΙΑ ΤΑ ΕΙΚΟΝΙΔΙΑ ΣΤΑ COUNTERS
    ========================================= */
 .counter-icon {
-    font-size: 2.5rem; /* Μεγεθος εικονιδίου */
-    color: #b78a38;    /* Χρυσό χρώμα */
-    margin-bottom: 15px;
-    display: block;    /* Να μπει σε δική του γραμμή πάνω από το νούμερο */
+    display: inline-flex;       /* Για να κεντραριστεί τέλεια στον κύκλο */
+    justify-content: center;
+    align-items: center;
+    
+    width: 100px;               /* Μεγάλος Κύκλος (πλάτος) */
+    height: 100px;              /* Μεγάλος Κύκλος (ύψος) */
+    border-radius: 50%;         /* Σχήμα κύκλου */
+    
+    background-color: rgba(183, 138, 56, 0.15); /* Αχνό χρυσό φόντο */
+    font-size: 3rem;            /* ΠΟΛΥ ΜΕΓΑΛΟ ΕΙΚΟΝΙΔΙΟ μέσα στον κύκλο */
+    color: #b78a38;             /* Χρυσό χρώμα */
+    
+    margin-bottom: 25px;        /* Απόσταση από το νούμερο */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Μοντέρνα, απαλή σκιά */
+    
+    transition: all 0.4s ease;  /* Για να γίνεται ομαλά η αλλαγή στο hover */
+}
+
+/* ΕΦΕ: Όταν πας το ποντίκι πάνω από το νούμερο/κουτί */
+.counter-item:hover .counter-icon {
+    background-color: #b78a38;  /* Ο κύκλος γεμίζει χρυσό */
+    color: #ffffff;             /* Το εικονίδιο γίνεται λευκό */
+    transform: translateY(-10px) scale(1.1); /* Ανεβαίνει λίγο και μεγαλώνει */
+    box-shadow: 0 15px 30px rgba(183, 138, 56, 0.4); /* Πιο έντονη λάμψη */
+}
+
+/* Μικρή διόρθωση για το κείμενο των αριθμών */
+.count {
+    margin-bottom: 5px;
+    display: block;
 }
 
 /* =========================================
