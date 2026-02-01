@@ -1,8 +1,467 @@
 /* =========================================
-   HOMEPAGE NEW SECTIONS (ΔΙΟΡΘΩΜΕΝΟ & ΟΛΟΚΛΗΡΩΜΕΝΟ)
+   1. GLOBAL STYLES & RESET
+   ========================================= */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+    background: #2c3e50;
+    padding: 0 5%; /* Χωρίς κενό πάνω-κάτω όπως ζήτησες */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    height: 80px; /* Σταθερό ύψος */
+}
+
+/* Logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+}
+
+.logo-img {
+    height: 70px; /* Το μέγεθος που ζήτησες */
+    width: auto;
+    object-fit: contain;
+    padding: 5px 0;
+}
+
+/* Menu Links */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #ecf0f1; /* Σχεδόν λευκό */
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 1.1rem;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    color: #b78a38; /* Χρυσό */
+}
+
+/* Mobile Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+        padding: 10px 5%;
+        flex-direction: column;
+    }
+    .logo-img {
+        height: 50px; /* Μικρότερο σε κινητά */
+    }
+    .navbar ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .navbar ul li {
+        margin: 5px 10px;
+    }
+}
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+.hero {
+    background: url("../img/hero.jpg") center/cover no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5); /* Σκούρο φίλτρο */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.btn-cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #b78a38;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.btn-cta:hover {
+    background: #96702b;
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+}
+
+/* =========================================
+   4. GENERAL & COUNTERS
+   ========================================= */
+.container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+/* Blue Bar Counters */
+.blue-panel {
+    background: #2c3e50;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.counter-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   5. ABOUT PAGE STYLES
+   ========================================= */
+.about-section {
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+.about-feature-block {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    min-height: 500px;
+    margin-top: 40px;
+}
+
+.lawyer-image-container {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 35%;
+    max-width: 400px;
+    height: auto;
+    z-index: 10;
+}
+
+.lawyer-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    object-fit: cover;
+}
+
+.dark-panel {
+    background-color: #2c3e50;
+    color: #ffffff;
+    width: 75%;
+    padding: 60px 60px 60px 180px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.dark-panel h3 {
+    color: #ffffff;
+    border-bottom: 2px solid #b78a38;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    display: inline-block;
+}
+
+.dark-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dark-panel ul li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.dark-panel ul li::before {
+    content: "•";
+    color: #b78a38;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 950px) {
+    .about-feature-block {
+        display: block;
+        margin-top: 20px;
+        min-height: auto;
+    }
+    .lawyer-image-container {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto -50px;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .dark-panel {
+        width: 100%;
+        padding: 80px 30px 40px 30px;
+    }
+}
+
+/* =========================================
+   6. CONTACT PAGE STYLES
+   ========================================= */
+.contact-section {
+    padding-bottom: 80px;
+}
+
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contact-info-side {
+    flex: 1;
+    min-width: 250px;
+    padding-top: 10px;
+}
+
+.contact-details p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    color: #333;
+    border-left: 3px solid #b78a38;
+    padding-left: 15px;
+}
+
+.form-panel.dark-panel-lined {
+    flex: 2;
+    min-width: 320px;
+    background-color: #2c3e50;
+    padding: 60px;
+    border-radius: 6px;
+    color: white;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.form-panel h3 {
+    color: #ffffff;
+    border-bottom: 2px solid #b78a38;
+    padding-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: 1.6rem;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.dark-panel-lined label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #bdc3c7;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lined-input-dark {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 0;
+    font-family: inherit;
+    font-size: 1.2rem;
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.lined-input-dark:focus {
+    border-bottom: 2px solid #b78a38;
+}
+
+.lined-textarea-dark {
+    width: 100%;
+    background: transparent;
+    border: none;
+    background-image: linear-gradient(transparent 39px, rgba(255, 255, 255, 0.3) 40px);
+    background-size: 100% 40px;
+    line-height: 40px;
+    padding: 0;
+    font-family: inherit;
+    font-size: 1.2rem;
+    color: #ffffff;
+    outline: none;
+    resize: vertical;
+}
+
+.btn-submit-gold {
+    display: inline-block;
+    background-color: #b78a38;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+}
+
+.btn-submit-gold:hover {
+    background-color: #ffffff;
+    color: #2c3e50;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+    .contact-info-side, .form-panel.dark-panel-lined {
+        flex: auto;
+        width: 100%;
+    }
+    .form-panel.dark-panel-lined {
+        padding: 30px;
+    }
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+footer {
+    text-align: center;
+    font-size: 14px;
+    padding: 20px;
+    background: #333;
+    color: #bbb;
+    margin-top: auto;
+    border-top: 4px solid #b78a38;
+}
+
+.footer-content h4 {
+    margin: 0 0 5px;
+    font-size: 1.4rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.role-title {
+    margin: 0 0 20px;
+    font-size: 0.95rem;
+    color: #b78a38;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-links {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.footer-links a,
+.footer-links a:visited,
+.footer-links a:active {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #b78a38;
+    text-decoration: none;
+}
+
+.separator {
+    margin: 0 10px;
+    color: #7f8c8d;
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: #95a5a6;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    .footer-links span {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .separator {
+        display: none;
+    }
+}
+
+/* =========================================
+   8. HOMEPAGE NEW SECTIONS (FIXED)
    ========================================= */
 
-/* Γενικές κλάσεις για sections */
+/* Sections */
 .section-light {
     background-color: #f9f9f9;
     padding: 80px 20px;
@@ -51,7 +510,6 @@
     line-height: 1.8;
 }
 
-/* Λίστα με bullets */
 .home-list {
     list-style: none;
     padding: 0;
@@ -69,10 +527,9 @@
 .home-list li i {
     color: #b78a38;
     margin-right: 15px;
-    font-size: 0.9em;
 }
 
-/* --- ΦΩΤΟΓΡΑΦΙΑ --- */
+/* Profile Image */
 .image-content {
     flex: 1;
     display: flex;
@@ -93,19 +550,18 @@
     transform: scale(1.02);
 }
 
-/* Το εικονίδιο της Διαμεσολάβησης */
+/* Icon */
 .icon-content {
     flex: 0.6;
     text-align: center;
 }
-
 .icon-content i {
     font-size: 120px;
     color: #b78a38;
     opacity: 0.2;
 }
 
-/* --- ΚΟΥΜΠΙΑ (ΓΕΝΙΚΟ ΣΤΥΛ) --- */
+/* Buttons */
 .btn-gold-outline, .btn-dark, .btn-cta-big {
     display: inline-block;
     text-decoration: none;
@@ -119,26 +575,22 @@
     cursor: pointer;
 }
 
-/* 1. Κουμπί Διαμεσολάβησης (Outline) */
 .btn-gold-outline {
     border: 2px solid #b78a38;
     color: #b78a38;
     background: transparent;
 }
-
 .btn-gold-outline:hover {
     background-color: #b78a38;
     color: white;
     box-shadow: 0 5px 15px rgba(183, 138, 56, 0.3);
 }
 
-/* 2. Κουμπί Βιογραφικού (Σκούρο) */
 .btn-dark {
     background-color: #2c3e50;
     color: white;
     border: 2px solid #2c3e50;
 }
-
 .btn-dark:hover {
     background-color: #34495e;
     border-color: #34495e;
@@ -146,29 +598,25 @@
     transform: translateY(-2px);
 }
 
-/* --- CALL TO ACTION SECTION --- */
+/* CTA Section */
 .cta-section {
     background-color: #b78a38;
     color: white;
     text-align: center;
     padding: 70px 20px;
 }
-
 .cta-section h2 {
     color: white;
     margin-bottom: 15px;
     font-size: 2rem;
 }
-
 .cta-section h2::after { display: none; }
-
 .cta-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
     opacity: 0.9;
 }
 
-/* 3. Κουμπί CTA (Λευκό) */
 .btn-cta-big {
     background-color: white;
     color: #b78a38;
@@ -177,7 +625,6 @@
     padding: 16px 45px;
     font-size: 1rem;
 }
-
 .btn-cta-big:hover {
     background-color: transparent;
     color: white;
@@ -185,12 +632,9 @@
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* =========================================
-   MEDIATION PLUM PANEL (#502c3e)
-   ========================================= */
-
+/* PLUM PANEL (#502c3e) */
 .plum-panel {
-    background-color: #502c3e; /* Δαμασκηνί */
+    background-color: #502c3e;
     width: 100%;
     padding: 60px;
     border-radius: 8px;
@@ -225,7 +669,6 @@
     line-height: 1.8;
 }
 
-/* Λίστα κεντραρισμένη */
 .home-list-centered {
     list-style: none;
     padding: 0;
@@ -247,11 +690,11 @@
     margin-right: 8px;
 }
 
-/* ΚΟΥΜΠΙ ΛΕΥΚΟ (WHITE CONTRAST) ΓΙΑ ΤΟ PLUM PANEL */
+/* WHITE CONTRAST BUTTON */
 .btn-white-contrast {
     display: inline-block;
-    background-color: #ffffff !important; /* Λευκό φόντο */
-    color: #502c3e !important; /* Γράμματα στο χρώμα του πάνελ */
+    background-color: #ffffff !important;
+    color: #502c3e !important;
     padding: 16px 40px;
     margin-top: 20px;
     font-size: 1rem;
@@ -267,13 +710,13 @@
 }
 
 .btn-white-contrast:hover {
-    background-color: transparent !important; /* Γίνεται διάφανο */
-    color: #ffffff !important; /* Λευκά γράμματα */
+    background-color: transparent !important;
+    color: #ffffff !important;
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* RESPONSIVE */
+/* Responsive Home */
 @media (max-width: 850px) {
     .container-grid {
         flex-direction: column;
@@ -293,13 +736,11 @@
     .icon-content {
         display: none;
     }
-    /* Responsive κουμπιά */
     .btn-gold-outline, .btn-dark, .btn-white-contrast {
         width: 100%;
         box-sizing: border-box;
         text-align: center;
     }
-    /* Responsive Panel */
     .plum-panel {
         padding: 40px 20px;
     }
