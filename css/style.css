@@ -907,3 +907,47 @@ footer {
     }
 }
 
+/* =========================================
+   MOBILE RESPONSIVE (ΓΙΑ ΤΟ ΥΠΟΛΟΙΠΟ SITE)
+   ========================================= */
+
+@media (max-width: 900px) {
+    /* ΔΕΝ ΠΕΙΡΑΖΟΥΜΕ ΤΟ NAVBAR ΕΔΩ */
+
+    /* Hero Section */
+    .hero { height: 60vh; }
+    .hero h1 { font-size: 2rem; }
+    .hero p { padding: 0 20px; }
+
+    /* Γενική Διάταξη */
+    .container-grid {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .reverse-mobile { flex-direction: column; }
+    
+    /* Εικόνα Βιογραφικού */
+    .home-profile-img {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 20px;
+    }
+    .text-content h2::after { margin: 15px auto; }
+
+    /* Counters & Panel */
+    .counter-wrapper { flex-direction: column; align-items: center; }
+    .counter-box { width: 100%; max-width: 300px; }
+    
+    .plum-panel { padding: 30px 20px; }
+    .plum-panel h2 { font-size: 1.5rem; }
+
+    /* Κουμπιά */
+    .btn-cta, .btn-dark, .btn-cta-big {
+        width: 100%;
+        box-sizing: border-box;
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
