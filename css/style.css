@@ -304,82 +304,116 @@ h2::after {
 }
 
 /* =========================================
-   CONTACT PAGE - MINIMAL FORM STYLES
+   CONTACT PAGE - DARK PANEL STYLE
    ========================================= */
 
-.minimal-form .form-group {
-    margin-bottom: 30px; /* Απόσταση μεταξύ των πεδίων */
+.contact-section {
+    padding-bottom: 60px;
 }
 
-/* Στυλ για τις ετικέτες (Labels) */
-.minimal-form label {
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Ρυθμίσεις για την αριστερή πλευρά (Πληροφορίες) */
+.contact-info-side {
+    flex: 1;
+    min-width: 300px;
+}
+
+.map-container {
+    margin-top: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Ελαφριά σκιά στον χάρτη */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* --- ΤΟ ΜΠΛΕ ΠΑΝΕΛ ΤΗΣ ΦΟΡΜΑΣ --- */
+.form-panel.dark-panel {
+    flex: 1;
+    min-width: 300px;
+    background-color: #2c3e50; /* Το σκούρο μπλε */
+    padding: 40px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Ωραία σκιά για βάθος */
+}
+
+.form-panel h3 {
+    color: #ffffff;
+    border-bottom: 2px solid #b78a38; /* Χρυσή γραμμή κάτω από τον τίτλο */
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* Στυλ για τα πεδία (Inputs) μέσα στο μπλε κουτί */
+.pro-contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.pro-contact-form label {
     display: block;
-    font-size: 0.9rem;
-    color: #666; /* Γκρι χρώμα όπως στη φωτογραφία */
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 500;
+    color: #ecf0f1; /* Σχεδόν λευκό */
 }
 
-/* Στυλ για τα inputs (Μόνο κάτω γραμμή) */
-.lined-input {
+.pro-contact-form input,
+.pro-contact-form textarea {
     width: 100%;
-    border: none;
-    border-bottom: 1px solid #ccc; /* Λεπτή γκρι γραμμή κάτω */
-    background: transparent;
-    padding: 10px 0;
-    font-size: 1rem;
-    color: #333;
-    outline: none; /* Αφαιρεί το μπλε πλαίσιο του browser */
-    transition: border-color 0.3s;
-}
-
-/* Όταν κάνει κλικ ο χρήστης, η γραμμή γίνεται μπλε */
-.lined-input:focus {
-    border-bottom: 2px solid #2c3e50;
-}
-
-/* Στυλ για το πεδίο Μηνύματος (Lines effect) */
-.lined-textarea {
-    width: 100%;
-    border: none;
-    /* Αυτό το gradient δημιουργεί τις γραμμές σαν τετράδιο */
-    background-image: linear-gradient(transparent 39px, #ccc 40px);
-    background-size: 100% 40px;
-    line-height: 40px; /* Πρέπει να είναι ίδιο με το background-size */
-    
-    font-size: 1rem;
-    color: #333;
-    outline: none;
-    resize: vertical; /* Επιτρέπει αλλαγή μεγέθους μόνο κάθετα */
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.1); /* Ελαφρώς διαφανές φόντο */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Αχνό λευκό περίγραμμα */
+    border-radius: 4px;
+    color: white; /* Λευκά γράμματα όταν γράφει ο χρήστης */
     font-family: inherit;
-    padding: 0;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
 }
 
-.lined-textarea:focus {
-    /* Προαιρετικά: Μπορούμε να βάλουμε μια πιο έντονη γραμμή στο τέλος ή αριστερά */
-    background-image: linear-gradient(transparent 39px, #2c3e50 40px);
+/* Όταν κάνει κλικ μέσα στο πεδίο */
+.pro-contact-form input:focus,
+.pro-contact-form textarea:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #b78a38; /* Γίνεται χρυσό το περίγραμμα */
 }
 
-/* Στυλ Κουμπιού */
-.btn-submit {
-    background-color: #2c3e50;
+/* Το κουμπί αποστολής - Χρυσό */
+.btn-submit-gold {
+    width: 100%;
+    background-color: #b78a38;
     color: white;
     border: none;
-    padding: 12px 35px;
-    font-size: 1rem;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
-    transition: background 0.3s;
+    margin-top: 10px;
+    transition: background 0.3s, transform 0.2s;
 }
 
-.btn-submit:hover {
-    background-color: #b78a38; /* Χρυσό στο hover */
+.btn-submit-gold:hover {
+    background-color: #96702b; /* Πιο σκούρο χρυσό */
+    transform: translateY(-2px); /* Ελαφριά κίνηση προς τα πάνω */
 }
 
-/* Λίγη μορφοποίηση για τα στοιχεία επικοινωνίας αριστερά */
-.contact-details p {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+    .form-panel {
+        width: 100%;
+        padding: 25px; /* Λίγο μικρότερο padding στα κινητά */
+        box-sizing: border-box;
+    }
 }
 
 /* FOOTER */
